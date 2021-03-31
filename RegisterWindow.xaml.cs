@@ -28,33 +28,32 @@ namespace TestUsers
 
         private void Clear_PasswordBorder_1()
         {
-            PasswordBorder_1.ToolTip = null;
+            Password_1.ToolTip = null;
             PasswordBorder_1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Clear_PasswordBorder_2()
         {
-            System.Text.RegularExpressions.Regex regex = null;
-            regex = new System.Text.RegularExpressions.Regex("^([0-9])*$");
+            Password_2.ToolTip = null;
+            PasswordBorder_2.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+        }
 
-            string login = Login.Text.Trim();
-            string password_1 = Password_1.Password.Trim();
-            string password_2 = Password_2.Password.Trim();
-            string name = Name.Text.Trim();
-            string surname = Surname.Text.Trim();
-            string company = Company.Text.Trim();
-
+        private Boolean Check_Login(string login)
+        {
             if (login.Length < 5)
             {
                 Login.ToolTip = "Это поле введено некорректно!";
                 LoginBorder.BorderBrush = Brushes.Red;
+                return false;
             }
-            else
-            {
-                Login.ToolTip = null;
-                LoginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-            }
+            Login.ToolTip = null;
+            LoginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            return true;
 
+        }
+
+        private Boolean Check_Password(string password_1, string password_2)
+        {
             if (password_1.Length >= 5)
             {
                 bool en = true;
@@ -69,40 +68,41 @@ namespace TestUsers
                 {
                     Password_1.ToolTip = "Доступна английская раскладка";
                     PasswordBorder_1.BorderBrush = Brushes.Red;
+                    return false;
                 }
-                else
+                Clear_PasswordBorder_1();
+                if (!number)
                 {
-                    Clear_PasswordBorder_1();
-                    if (!number)
-                    {
-                        Password_1.ToolTip = "Добавьте минимум одну цифру";
-                        PasswordBorder_1.BorderBrush = Brushes.Red;
-                    }
-                    else
-                    {
-                        Clear_PasswordBorder_1();
-                        if (password_1 != password_2)
-                        {
-                            PasswordBorder_1.BorderBrush = Brushes.Red;
-                            PasswordBorder_2.BorderBrush = Brushes.Red;
-                            Password_1.ToolTip = "Пароли не совпадают";
-                            Password_2.ToolTip = "Пароли не совпадают";
-                        }
-                        else
-                        {
-                            Clear_PasswordBorder_1();
-                        }
-                    }
+                    Password_1.ToolTip = "Добавьте минимум одну цифру";
+                    PasswordBorder_1.BorderBrush = Brushes.Red;
+                    return false;
                 }
+                Clear_PasswordBorder_1();
+                if (password_1 != password_2)
+                {
+                    PasswordBorder_1.BorderBrush = Brushes.Red;
+                    PasswordBorder_2.BorderBrush = Brushes.Red;
+                    Password_1.ToolTip = "Пароли не совпадают";
+                    Password_2.ToolTip = "Пароли не совпадают";
+                    return false;
+                }
+                Clear_PasswordBorder_1();
+                Clear_PasswordBorder_2();
+                return true;
             }
-            else
-            {
-                Password_1.ToolTip = "Пароль минимум 5 символов";
-                Password_2.ToolTip = "Пароль минимум 5 символов";
-                PasswordBorder_1.BorderBrush = Brushes.Red;
-                PasswordBorder_2.BorderBrush = Brushes.Red;
-            }
+            Password_1.ToolTip = "Пароль минимум 5 символов";
+            Password_2.ToolTip = "Пароль минимум 5 символов";
+            PasswordBorder_1.BorderBrush = Brushes.Red;
+            PasswordBorder_2.BorderBrush = Brushes.Red;
+            return false;
+        }
 
+        private Boolean Check_Name(string name)
+        {
+            //Модифицировать проверку на специальные символы. Добавить проверка пробела.
+
+            System.Text.RegularExpressions.Regex regex = null;
+            regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
             if (name.Length >= 2)
             {
                 bool ru = true;
@@ -110,36 +110,44 @@ namespace TestUsers
                 for (int i = 0; i < name.Length; i++)
                 {
                     if (name[i] >= 'A' & name[i] <= 'Z') ru = false;
+                    
                 }
 
                 if (!ru)
                 {
                     Name.ToolTip = "Доступна русская раскладка";
                     NameBorder.BorderBrush = Brushes.Red;
+                    return false;
                 }
-                else
+                Name.ToolTip = null;
+                NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+                if (regex.IsMatch(Name.Text))
                 {
                     Name.ToolTip = null;
                     NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                    if (regex.IsMatch(Name.Text))
-                    {
-                        Name.ToolTip = null;
-                        NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                    }
-                    else
-                    {
-                        Name.ToolTip = "Запрещен ввод цифр и символов";
-                        NameBorder.BorderBrush = Brushes.Red;
-                    }
+                    return true;
                 }
-            }
-
-            else
-            {
-                Name.ToolTip = "Некорректное имя";
+                Name.ToolTip = "Запрещен ввод цифр и символов";
                 NameBorder.BorderBrush = Brushes.Red;
+                return false;
             }
+            Name.ToolTip = "Некорректное имя";
+            NameBorder.BorderBrush = Brushes.Red;
+            return false;
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string login = Login.Text.Trim();
+            string password_1 = Password_1.Password.Trim();
+            string password_2 = Password_2.Password.Trim();
+            string name = Name.Text.Trim();
+            string surname = Surname.Text.Trim();
+            string company = Company.Text.Trim();
+
+            bool check_login = Check_Login(login);
+            bool check_password = Check_Password(password_1, password_2);
+            bool check_name = Check_Name(name);
 
             //MessageBox.Show("GOOD");
             //User user = new User(login, password, name, surname, company);
