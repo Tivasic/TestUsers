@@ -46,6 +46,19 @@ namespace TestUsers
                 LoginBorder.BorderBrush = Brushes.Red;
                 return false;
             }
+            User uniq_login = null;
+            using (db context = new db())
+            {
+                uniq_login = db.Users.Where(b => b.Login == login).FirstOrDefault();
+
+            }
+            if (uniq_login != null)
+            {
+                Login.ToolTip = "Этот логин зарегистрирован";
+                LoginBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
             Login.ToolTip = null;
             LoginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
             return true;
@@ -136,6 +149,60 @@ namespace TestUsers
             return false;
         }
 
+        private Boolean Check_Surname(string surname)
+        {
+            //Модифицировать проверку на специальные символы. Добавить проверка пробела.
+
+            System.Text.RegularExpressions.Regex regex = null;
+            regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
+            if (surname.Length >= 2)
+            {
+                bool ru = true;
+
+                for (int i = 0; i < surname.Length; i++)
+                {
+                    if (surname[i] >= 'A' & surname[i] <= 'Z') ru = false;
+
+                }
+
+                if (!ru)
+                {
+                    Surname.ToolTip = "Доступна русская раскладка";
+                    SurnameBorder.BorderBrush = Brushes.Red;
+                    return false;
+                }
+                Surname.ToolTip = null;
+                SurnameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+                if (regex.IsMatch(Name.Text))
+                {
+                    Name.ToolTip = null;
+                    NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+                    return true;
+                }
+                Surname.ToolTip = "Запрещен ввод цифр и символов";
+                SurnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+            Surname.ToolTip = "Некорректное имя";
+            SurnameBorder.BorderBrush = Brushes.Red;
+            return false;
+        }
+
+        private Boolean Check_Сompany(string company)
+        {
+            if (company.Length < 5)
+            {
+                Company.ToolTip = "Это поле введено некорректно!";
+                CompanyBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            Company.ToolTip = null;
+            CompanyBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            return true;
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
@@ -148,11 +215,21 @@ namespace TestUsers
             bool check_login = Check_Login(login);
             bool check_password = Check_Password(password_1, password_2);
             bool check_name = Check_Name(name);
+            bool check_surname = Check_Surname(surname);
+            bool check_company = Check_Сompany(company);
+
+            if (check_login & check_password & check_name & check_surname & check_company)
+            {
+                User user = new User(login, password_1, name, surname, company);
+                db.Users.Add(user);
+                db.SaveChanges();
+                
+                TextResult.Text = "Вы успешно зарегистрировались";
+            }
+
 
             //MessageBox.Show("GOOD");
-            //User user = new User(login, password, name, surname, company);
-            //db.Users.Add(user);
-            //db.SaveChanges();
+
 
             //else if (name.Length < 3)
             //{
@@ -175,6 +252,13 @@ namespace TestUsers
         }
 
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Hide();
+        }
+
+        private void Dialog_Button(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

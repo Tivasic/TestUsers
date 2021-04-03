@@ -99,7 +99,7 @@
                 </StackPanel>
 
                 <StackPanel  Margin="5 0 10 10">
-                    <Border CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
+                    <Border x:Name="CompanyBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Grid.Column="1" Margin="0,0,-1,0">
                         <TextBox x:Name="Company" Margin="10,5,9,0" BorderThickness="0" Background="Transparent"
                                  materialDesign:HintAssist.Hint="Сompany"
@@ -117,7 +117,8 @@
                         Width="170" FontFamily="Poppins"
                         Content="Зарегистрироваться"
                         Background="#279A44" BorderBrush="LightGreen"
-                        Click="Button_Click">
+                        Click="Button_Click"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="1"></DropShadowEffect>
                         </Button.Effect>
@@ -126,5 +127,18 @@
 
             </StackPanel>
         </Border>
+        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="TextResult" Text="Вы успешно зарегистрировались"></TextBlock>
+                    <Button 
+                        Margin="0 10 0 0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
+                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Content="Хорошо"
+                        Click="Dialog_Button">
+                    </Button>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Window>
