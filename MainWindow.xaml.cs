@@ -80,7 +80,7 @@ namespace TestUsers
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
-            Hide();
+            Close();
         }
     }
 }

@@ -236,7 +236,7 @@ namespace TestUsers
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            Hide();
+            Close();
         }
 
         private void Dialog_Button(object sender, RoutedEventArgs e)
@@ -245,7 +245,7 @@ namespace TestUsers
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                Hide();
+                Close();
             }
         }
     }
