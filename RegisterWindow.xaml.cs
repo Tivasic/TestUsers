@@ -226,29 +226,10 @@ namespace TestUsers
                 
                 TextResult.Text = "Вы успешно зарегистрировались";
             }
-
-
-            //MessageBox.Show("GOOD");
-
-
-            //else if (name.Length < 3)
-            //{
-            //    Name.ToolTip = "Это поле введено некорректно!";
-            //    Name.BorderBrush = Brushes.Red;
-            //}
-
-            //else if (surname.Length < 4)
-            //{
-            //    Surname.ToolTip = "Это поле введено некорректно!";
-            //    Surname.BorderBrush = Brushes.Red;
-            //}
-
-            // else if (company.Length < 5)
-            // {
-            //    Company.ToolTip = "Это поле введено некорректно!";
-            //     Company.BorderBrush = Brushes.Red;
-            // }
-
+            else
+            {
+                TextResult.Text = "Повторите попытку регистрации";
+            }
         }
 
         private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -260,9 +241,12 @@ namespace TestUsers
 
         private void Dialog_Button(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Hide();
+            if (TextResult.Text == "Вы успешно зарегистрировались")
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Hide();
+            }
         }
     }
 }

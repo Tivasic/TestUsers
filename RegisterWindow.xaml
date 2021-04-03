@@ -130,7 +130,7 @@
         <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
             <materialDesign:DialogHost.DialogContent>
                 <StackPanel Margin="15" Orientation="Vertical">
-                    <TextBlock x:Name="TextResult" Text="Вы успешно зарегистрировались"></TextBlock>
+                    <TextBlock x:Name="TextResult" Text=""></TextBlock>
                     <Button 
                         Margin="0 10 0 0"
                         Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
