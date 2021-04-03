@@ -25,7 +25,7 @@
                 <TextBlock Text="Заполните все поля!" HorizontalAlignment="Left" FontSize="14" Margin="5 5" FontFamily="Poppins"></TextBlock>
 
                 <StackPanel Margin="5 0 10 15">
-                    <Border x:Name="LoginBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#89000000" BorderThickness="1"
+                    <Border x:Name="LoginBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True">
 
                         <TextBox x:Name="Login" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"

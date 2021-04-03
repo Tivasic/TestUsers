@@ -59,7 +59,6 @@ namespace TestUsers
             {
                 if (password.Length >= 5)
                 {
-
                     User authUser = null;
                     using (db context = new db())
                     {
