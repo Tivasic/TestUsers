@@ -53,9 +53,7 @@
                     </Button>
                 </StackPanel>
 
-
             </StackPanel>
-
         </Border>
     </Grid>
 </Window>

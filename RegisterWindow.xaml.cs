@@ -79,7 +79,7 @@ namespace TestUsers
                 }
                 if (!en)
                 {
-                    Password_1.ToolTip = "Доступна английская раскладка";
+                    Password_1.ToolTip = "Доступна только английская раскладка";
                     PasswordBorder_1.BorderBrush = Brushes.Red;
                     return false;
                 }
@@ -128,7 +128,7 @@ namespace TestUsers
 
                 if (!ru)
                 {
-                    Name.ToolTip = "Доступна русская раскладка";
+                    Name.ToolTip = "Доступна только русская раскладка";
                     NameBorder.BorderBrush = Brushes.Red;
                     return false;
                 }
@@ -232,7 +232,7 @@ namespace TestUsers
             }
         }
 
-        private void PackIcon_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void MouseClick(object sender, MouseButtonEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
