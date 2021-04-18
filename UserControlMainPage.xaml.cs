@@ -16,11 +16,21 @@ using System.Windows.Shapes;
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для UserControlCreate.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class UserControlCreate: UserControl
+    public partial class UserControlMainPage: UserControl
     {
-        public UserControlCreate()
+        private static UserControlMainPage _instance;
+        public static UserControlMainPage Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new UserControlMainPage();
+                return _instance;
+            }
+        }
+        public UserControlMainPage()
         {
             InitializeComponent();
         }

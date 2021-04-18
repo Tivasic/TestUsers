@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="TestUsers.UserControlMainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestUsers"
+        mc:Ignorable="d" Height="648" Width="838"
+        Background="White">
+
+    <Grid>
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Добро пожаловать!" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
+                <Label HorizontalAlignment="Center" FontSize="18"  Margin="0,15,10,10" FontFamily="Poppins" Width="790">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="Это программа, предназначенная для проверки ваших знаний. Перед началом тестирования не забудьте ознакомиться с инструкцией. Удачи!"/>
+                    </Label.Content>
+                </Label>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,156,30,10">
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel Margin="0,-40,0,0" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/about_company.png" Margin="-42,0,-40,0" Width="208"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,152,-26,-21">
+                        <Label Content="О компании" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
+                        <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
+                            <Label.Content>
+                                <AccessText TextWrapping="Wrap" Text="Узнайте больше о нас и наших целях."/>
+                            </Label.Content>
+                        </Label>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel Margin="0,-40,0,0" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/about_test.png" Margin="-42,0,-40,0" Width="208"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,152,-26,-21">
+                        <Label Content="О тесте" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
+                        <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
+                            <Label.Content>
+                                <AccessText TextWrapping="Wrap" Text="Подробнее о том, как действует программа."/>
+                            </Label.Content>
+                        </Label>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel Margin="0,-40,0,0" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/ten_years.png" Margin="-42,0,-40,0" Width="208"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,152,-26,-21">
+                        <Label Content="Нам 10 лет!" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
+                        <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
+                            <Label.Content>
+                                <AccessText TextWrapping="Wrap" Text="Ура!"/>
+                            </Label.Content>
+                        </Label>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

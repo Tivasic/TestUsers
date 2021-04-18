@@ -89,11 +89,11 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlCreate.xaml.cs">
-      <DependentUpon>UserControlCreate.xaml</DependentUpon>
+    <Compile Include="UserControlMainPage.xaml.cs">
+      <DependentUpon>UserControlMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlHome.xaml.cs">
-      <DependentUpon>UserControlHome.xaml</DependentUpon>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -118,11 +118,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlCreate.xaml">
+    <Page Include="UserControlMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlHome.xaml">
+    <Page Include="TestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +161,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logoGZ_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\about_company.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\about_test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\ten_years.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\icon_user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

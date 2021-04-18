@@ -32,12 +32,12 @@ namespace TestUsers
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "ItemHome":
-                    usc = new UserControlHome();
+                case "StartTest":
+                    usc = new UserControlTestPage();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemCreate":
-                    usc = new UserControlCreate();
+                case "MainPage":
+                    usc = new UserControlMainPage();
                     GridMain.Children.Add(usc);
                     break;
                 default:
