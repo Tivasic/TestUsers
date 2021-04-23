@@ -4,10 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestUsers"
-        mc:Ignorable="d"
-        Background="Black">
-    <Grid >
+        mc:Ignorable="d" Height="648" Width="838"
+        Background="White">
 
+    <Grid>
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Доступные тестирования" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
+            </StackPanel>
+        </Grid>
+
+        <Grid Margin="30,138,30,264">
+            <Border MouseLeftButtonUp="Border_SmartTruck_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/SmartTruck_test_logo.png"  Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="SmartTruck" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border MouseLeftButtonUp="Border_C_grid_MouseLeftButtonUp"  Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/C_grid_test_logo.png" Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="C#" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border MouseLeftButtonUp="Border_Textile_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/textile_test_logo.png" Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="Текстиль" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Margin="30,389,30,13">
+
+            <Border MouseLeftButtonUp="Border_SmartTruck_plus_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/SmartTruck+_test_logo.png" Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="SmartTruck+" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" FontFamily="Poppins" Width="155"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border MouseLeftButtonUp="Border_C_plus_plus_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/C++_test_logo.png" Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="C++" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border MouseLeftButtonUp="Border_LGIP_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
+                </Border.Effect>
+                <Grid>
+                    <StackPanel  Margin="-33,-40,-36,33" >
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/LGIP_test_logo.png" Margin="-20,0,-18,0"/>
+                    </StackPanel>
+                    <StackPanel Margin="-24,88,-26,-30">
+                        <Label Content="ЛЖИП" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
-
 </UserControl>

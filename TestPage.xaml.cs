@@ -23,5 +23,34 @@ namespace TestUsers
         {
             InitializeComponent();
         }
+
+        private void Border_SmartTruck_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
+        private void Border_SmartTruck_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
+
+        private void Border_Textile_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
+
+        private void Border_C_plus_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
+
+        private void Border_LGIP_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
+
+        private void Border_C_grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("OKEEEEEEY");
+        }
     }
 }

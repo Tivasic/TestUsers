@@ -23,11 +23,14 @@ namespace TestUsers
         public MainWindow()
         {
             InitializeComponent();
+            UserControl usc;
+            usc = new UserControlMainPage();
+            GridMain.Children.Add(usc);
         }
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserControl usc = null;
+            UserControl usc;
             GridMain.Children.Clear();
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
