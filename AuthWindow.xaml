@@ -12,11 +12,11 @@
     <Grid UseLayoutRounding="True" Background="White">
 
         <StackPanel>
-            <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 0" Source="images/logo_GZ.jpg"></Image>
+            <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 0" Source="images\logo_company\logo_green.jpg"></Image>
         </StackPanel>
         <Border MinWidth="400" MaxWidth="500" Margin="15" Background="White" VerticalAlignment="Center" Padding="40" CornerRadius="20">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGreen" ShadowDepth="0" ></DropShadowEffect>
+                <DropShadowEffect BlurRadius="30" Color="#279A44" ShadowDepth="0" ></DropShadowEffect>
             </Border.Effect>
 
             <StackPanel Orientation="Vertical">
@@ -31,7 +31,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Впервые с нами?" HorizontalAlignment="Center" FontSize="14"  Margin="70,0,30,5" FontFamily="Poppins"></TextBlock>
                         <TextBlock Margin="185,0,25,0" FontFamily="Poppins" FontSize="14" Grid.ColumnSpan="2">
-                            <Hyperlink Style="{StaticResource MaterialDesignSubtitle2Hyperlink}" Click ="Button_Window_Register_Click" TextDecorations="Underline" Foreground="#FF279A44">Зарегистрируйтесь</Hyperlink>
+                            <Hyperlink Style="{StaticResource MaterialDesignSubtitle2Hyperlink}" Click ="Button_Window_Register_Click" TextDecorations="Underline" Foreground="#279A44">Зарегистрируйтесь</Hyperlink>
                         </TextBlock>
                     </Grid>
                 </StackPanel>
@@ -43,10 +43,10 @@
                 <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="20 0 0 0"></PasswordBox>
 
                 <StackPanel>
-                    <Button Style="{DynamicResource MaterialDesignRaisedLightButton}"
-                            Margin="0 13" Content="Войти" 
-                            Background="LightGreen" BorderBrush="LightGreen"
-                            Click="Button_Auth_Click">
+                    <Button Style="{DynamicResource RoundButtonTemplate}"
+                            Margin="0 13" 
+                            Width="120" Height="40"
+                            Click="Button_Auth_Click" Content="Войти" Cursor="Hand">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="1"></DropShadowEffect>
                         </Button.Effect>
