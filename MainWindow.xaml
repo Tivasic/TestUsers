@@ -11,7 +11,7 @@
         <Grid Height="46" VerticalAlignment="Top" Background="White" Margin="250,0,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Image HorizontalAlignment="Right" Source="images/icon_user.png" Margin="0 5 10 5"></Image>
-                <TextBlock Text="Ivan Tokarev" VerticalAlignment="Bottom" Width="180" Height="23" FontSize="16" Foreground="#FF6E916F" FontFamily="Poppins" Margin="0,10,0,8"/>
+                <TextBlock x:Name="UserName" Text="Ivan Tokarev" VerticalAlignment="Bottom" Width="180" Height="23" FontSize="16" Foreground="#FF6E916F" FontFamily="Poppins" Margin="0,10,0,8"/>
             </StackPanel>
         </Grid>
         <Border Width="250" HorizontalAlignment="Left" Background="#BA114F21" CornerRadius="0, 10, 10, 0">

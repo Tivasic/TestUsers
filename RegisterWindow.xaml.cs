@@ -234,8 +234,8 @@ namespace TestUsers
 
         private void MouseClick(object sender, MouseButtonEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            AuthWindow authwindow = new AuthWindow();
+            authwindow.Show();
             Close();
         }
 
@@ -243,8 +243,8 @@ namespace TestUsers
         {
             if (TextResult.Text == "Вы успешно зарегистрировались")
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                AuthWindow authwindow = new AuthWindow();
+                authwindow.Show();
                 Close();
             }
         }

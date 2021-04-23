@@ -69,6 +69,10 @@ namespace TestUsers
                     if (authUser != null)
                     {
                         MessageBox.Show("Пользователь авторизовался");
+                        MainWindow MainWindow = new MainWindow();
+                        MainWindow.UserName.Text = authUser.Name + " " + authUser.Surname;
+                        MainWindow.Show();
+                        Close();
                     }
                     else MessageBox.Show("Пользователь не найден");
                 }
