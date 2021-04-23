@@ -14,7 +14,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Margin="30,138,30,264">
+        <Grid Margin="33,114,27,288">
             <Border MouseLeftButtonUp="Border_SmartTruck_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
@@ -55,7 +55,7 @@
                 </Grid>
             </Border>
         </Grid>
-        <Grid Margin="30,389,30,13">
+        <Grid Margin="33,365,27,37">
 
             <Border MouseLeftButtonUp="Border_SmartTruck_plus_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
                 <Border.Effect>

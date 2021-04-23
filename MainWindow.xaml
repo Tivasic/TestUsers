@@ -35,7 +35,7 @@
                             <TextBlock Text="Главная страница" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="Manual" Height="60">
                         <StackPanel Orientation="Horizontal">
                             
                             <TextBlock Text="Инструкция" VerticalAlignment="Center"  Margin="20 10"/>

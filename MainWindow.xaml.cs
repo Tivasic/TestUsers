@@ -32,20 +32,29 @@ namespace TestUsers
         {
             UserControl usc;
             GridMain.Children.Clear();
+            string CurrentItem;
+            CurrentItem = (((ListViewItem)((ListView)sender).SelectedItem).Name);
 
-            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            if (CurrentItem == "StartTest")
             {
-                case "StartTest":
-                    usc = new UserControlTestPage();
-                    GridMain.Children.Add(usc);
-                    break;
-                case "MainPage":
-                    usc = new UserControlMainPage();
-                    GridMain.Children.Add(usc);
-                    break;
-                default:
-                    break;
+                usc = new UserControlTestPage();
+                GridMain.Children.Add(usc);
+
             }
+
+            if (CurrentItem == "MainPage")
+            {
+                usc = new UserControlMainPage();
+                GridMain.Children.Add(usc);
+
+            }
+
+            if (CurrentItem == "Manual")
+            {
+                usc = new UserControlManual();
+                GridMain.Children.Add(usc);
+            }
+
         }
     }
 }

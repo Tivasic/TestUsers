@@ -95,6 +95,9 @@
     <Compile Include="TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlManual.xaml.cs">
+      <DependentUpon>UserControlManual.xaml</DependentUpon>
+    </Compile>
     <Page Include="AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlManual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
