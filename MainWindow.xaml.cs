@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,27 @@ namespace TestUsers
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public User DataUser { get; set; }
+
+ 
         public MainWindow()
         {
+
             InitializeComponent();
             UserControl usc;
             usc = new UserControlMainPage();
             GridMain.Children.Add(usc);
         }
 
+        public void ChangeUserName()
+        {
+            UserName.Text = DataUser.Name + " " + DataUser.Surname;
+        }
+
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             UserControl usc;
             GridMain.Children.Clear();
             string CurrentItem;
@@ -48,13 +60,17 @@ namespace TestUsers
                 GridMain.Children.Add(usc);
 
             }
-
             if (CurrentItem == "Manual")
             {
                 usc = new UserControlManual();
                 GridMain.Children.Add(usc);
             }
 
+            if (CurrentItem == "PersonalAccount")
+            {
+                usc = new UserControlPersonalAccount();
+                GridMain.Children.Add(usc);
+            }
         }
     }
 }

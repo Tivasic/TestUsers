@@ -21,6 +21,7 @@ namespace TestUsers
     public partial class AuthWindow : Window
     {
         db db;
+        public User DataUser { get; set; }
         public AuthWindow()
         {
             InitializeComponent();
@@ -59,18 +60,21 @@ namespace TestUsers
             {
                 if (password.Length >= 5)
                 {
-                    User authUser = null;
+                    
                     using (db context = new db())
                     {
-                        authUser = db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault();
+                        DataUser = db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault();
 
                     }
 
-                    if (authUser != null)
+                    if (DataUser != null)
                     {
                         MessageBox.Show("Пользователь авторизовался");
-                        MainWindow MainWindow = new MainWindow();
-                        MainWindow.UserName.Text = authUser.Name + " " + authUser.Surname;
+                        MainWindow MainWindow = new MainWindow
+                        {
+                            DataUser = DataUser
+                        };
+                        MainWindow.ChangeUserName();
                         MainWindow.Show();
                         Close();
                     }

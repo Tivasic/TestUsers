@@ -41,7 +41,7 @@
                             <TextBlock Text="Инструкция" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="PersonalAccount" Height="60">
                         <StackPanel Orientation="Horizontal">
                             
                             <TextBlock Text="Личный кабинет" VerticalAlignment="Center"  Margin="20 10"/>
@@ -54,11 +54,9 @@
                             </materialDesign:PackIcon>
                         </materialDesign:PopupBox.ToggleContent>
                         <StackPanel  Orientation="Vertical"  Width="150">
-                            <Button Content="Settings"/>
-                            <Button Content="Account"/>
-                            <Button Content="Help"/>
+                            <Button Content="О программе"/>
                             <Separator/>
-                            <Button Content="Logout"/>
+                            <Button Content="Выйти"/>
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>

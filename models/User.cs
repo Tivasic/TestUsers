@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TestUsers
 {
-    class User
+    public class User: INotifyPropertyChanged
     {
         public int id { get; set; }
         private string login, password, name, surname, company;
@@ -14,31 +11,56 @@ namespace TestUsers
         public string Login
         {
             get { return login; }
-            set { login = value; }
+			set
+            {
+                if (value == login) return;
+                login = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Password
         {
             get { return password; }
-            set { password = value; }
+            set
+            {
+                if (value == password) return;
+                password = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set
+            {
+                if (value == name) return;
+                name = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Surname
         {
             get { return surname; }
-            set { surname = value; }
+            set
+            {
+                if (value == surname) return;
+                surname = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Company
         {
             get { return company; }
-            set { company = value; }
+            set
+            {
+                if (value == company) return;
+                company = value;
+                OnPropertyChanged();
+            }
         }
 
         public User() { }
@@ -51,5 +73,17 @@ namespace TestUsers
             this.surname = surname;
             this.company = company;
         }
+		
+		#region InotifyPropertyChange
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        #endregion
     }
 }

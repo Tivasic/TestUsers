@@ -80,7 +80,7 @@
 
                         <Border  x:Name="NameBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,0,5,0">
-                            <TextBox Language="ru-ru" HorizontalAlignment="Left" x:Name="Name" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
+                            <TextBox HorizontalAlignment="Left" x:Name="Name" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
                          materialDesign:HintAssist.Hint="Name"
                          materialDesign:HintAssist.HelperText="Ваше Имя"
                          Style="{DynamicResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="179" >
@@ -135,7 +135,7 @@
                     <Button 
                         Margin="0 10 0 0"
                         Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
-                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Content="Хорошо"
+                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо"
                         Click="Dialog_Button">
                     </Button>
                 </StackPanel>

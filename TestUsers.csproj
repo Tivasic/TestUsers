@@ -98,6 +98,9 @@
     <Compile Include="UserControlManual.xaml.cs">
       <DependentUpon>UserControlManual.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlPersonalAccount.xaml.cs">
+      <DependentUpon>UserControlPersonalAccount.xaml</DependentUpon>
+    </Compile>
     <Page Include="AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlManual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlPersonalAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,13 +16,19 @@ using System.Windows.Shapes;
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для UserControlPersonalAccount.xaml
     /// </summary>
-    public partial class UserControlMainPage: UserControl
+    public partial class UserControlPersonalAccount : UserControl
     {
-        public UserControlMainPage()
+        public User DataUser { get; set; }
+        public UserControlPersonalAccount()
         {
             InitializeComponent();
+
+        }
+        public void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
