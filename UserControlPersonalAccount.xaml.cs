@@ -26,6 +26,14 @@ namespace TestUsers
             InitializeComponent();
 
         }
+
+        public void FillingFields()
+        {
+            Name.Text = DataUser.Name;
+            Surname.Text = DataUser.Surname;
+            Company.Text = DataUser.Company;
+        }
+
         public void Button_Click(object sender, RoutedEventArgs e)
         {
 

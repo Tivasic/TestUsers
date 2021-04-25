@@ -68,8 +68,10 @@ namespace TestUsers
 
             if (CurrentItem == "PersonalAccount")
             {
-                usc = new UserControlPersonalAccount();
-                GridMain.Children.Add(usc);
+                UserControlPersonalAccount A = new UserControlPersonalAccount();
+                A.DataUser = DataUser;
+                A.FillingFields();
+                GridMain.Children.Add(A);
             }
         }
     }
