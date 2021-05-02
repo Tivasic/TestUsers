@@ -8,9 +8,9 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        WindowStartupLocation="CenterScreen"
         Title="Регистрация" MinHeight="600" MinWidth="900">
     <Grid UseLayoutRounding="True" Background="White">
-
         <StackPanel>
             <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 0" Source="images\logo_company\logo_green.jpg"></Image>
         </StackPanel>
