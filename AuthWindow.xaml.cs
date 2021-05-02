@@ -69,16 +69,9 @@ namespace TestUsers
 
                     if (DataUser != null)
                     {
-                        MessageBox.Show("Пользователь авторизовался");
-                        MainWindow MainWindow = new MainWindow
-                        {
-                            DataUser = DataUser
-                        };
-                        MainWindow.ChangeUserName();
-                        MainWindow.Show();
-                        Close();
+                        TextResult.Text = "Вы успешно авторизовались!";
                     }
-                    else MessageBox.Show("Пользователь не найден");
+                    else TextResult.Text = "Пользователь не найден";
                 }
             }
         }
@@ -88,6 +81,19 @@ namespace TestUsers
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             Close();
+        }
+        private void Dialog_Button(object sender, RoutedEventArgs e)
+        {
+            if (TextResult.Text == "Вы успешно авторизовались!")
+            {
+                MainWindow MainWindow = new MainWindow
+                {
+                    DataUser = DataUser
+                };
+                MainWindow.ChangeUserName();
+                MainWindow.Show();
+                Close();
+            }
         }
     }
 }

@@ -46,14 +46,28 @@
                     <Button Style="{DynamicResource RoundButtonTemplate}"
                             Margin="0 13" 
                             Width="120" Height="40"
-                            Click="Button_Auth_Click" Content="Войти" Cursor="Hand">
+                            Click="Button_Auth_Click" Content="Войти" Cursor="Hand"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="1"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
                 </StackPanel>
-
             </StackPanel>
         </Border>
+        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="TextResult"></TextBlock>
+                    <Button x:Name="ButtonResult"
+                            Margin="0 10 0 0"
+                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
+                            Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо"
+                            Click="Dialog_Button">
+                    </Button>
+                    
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </Window>
