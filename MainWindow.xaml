@@ -53,10 +53,11 @@
                             <materialDesign:PackIcon Kind="Settings" Cursor="Hand" Foreground="White"  Height="25" Width="25">
                             </materialDesign:PackIcon>
                         </materialDesign:PopupBox.ToggleContent>
-                        <StackPanel  Orientation="Vertical"  Width="150">
+                        <StackPanel  Orientation="Vertical"  Width="170">
                             <Button Content="О программе"/>
                             <Separator/>
-                            <Button Content="Выйти"/>
+                            <Button Content="Выйти из учетной записи" Click="Button_Click_Account_Exit"/>
+                            <Button Content="Выйти из программы" Click="Button_Click_Programm_Exit"/>
                         </StackPanel>
                     </materialDesign:PopupBox>
                 </StackPanel>

@@ -83,5 +83,17 @@ namespace TestUsers
                 GridMain.Children.Add(usc1);
             }
         }
+
+        private void Button_Click_Account_Exit(object sender, RoutedEventArgs e)
+        {
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
+            Close();
+        }
+
+        private void Button_Click_Programm_Exit(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
