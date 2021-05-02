@@ -41,8 +41,6 @@ namespace TestUsers
             string password_2 = Password_2.Password.Trim();
             bool check_password;
 
-
-
             RegisterWindow registerWindow = new RegisterWindow();
 
             if (DataUser.Password == current_password)
@@ -57,10 +55,8 @@ namespace TestUsers
                 check_password = false;
             }
 
-
             if (check_password)
             {
-
                 db.Users.Attach(DataUser);
                 DataUser.Password = password_1;
                 db.SaveChanges();

@@ -35,7 +35,6 @@ namespace TestUsers
             Company.Text = DataUser.Company;
         }
 
-
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             string name = Name.Text.Trim();
@@ -74,10 +73,8 @@ namespace TestUsers
                 check_company = true;
             }
 
-
             if (check_name & check_surname & check_company)
             {
-
                 db.Users.Attach(DataUser);
                 DataUser.Name = name;
                 DataUser.Surname = surname;
@@ -87,7 +84,6 @@ namespace TestUsers
                 {
                     DataUser = DataUser
                 };
-                //mainWindow.UserName.Text = name + " " + surname;
                 TextResult.Text = "Вы успешно сменили личные данные";
             }
             else
@@ -98,7 +94,6 @@ namespace TestUsers
 
         private void Hyperlink_Change_Password(object sender, RoutedEventArgs e)
         {
-
             UserControlChangePassword usc = new UserControlChangePassword
             {
                 DataUser = DataUser
