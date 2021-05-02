@@ -12,7 +12,7 @@
         Title="Регистрация" MinHeight="600" MinWidth="900">
     <Grid UseLayoutRounding="True" Background="White">
         <StackPanel>
-            <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 0" Source="images\logo_company\logo_green.jpg"></Image>
+            <Image HorizontalAlignment="Right" MinWidth ="180" Height="200"  Margin="0 20 10 0" Source="images\logo_company\logo_green.png" Width="180"></Image>
         </StackPanel>
         <Border MinWidth="400" MaxWidth="500" Margin="15" Background="White" VerticalAlignment="Center" Padding="40" CornerRadius="20">
             <Border.Effect>
@@ -81,7 +81,7 @@
                         <Border  x:Name="NameBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,0,5,0">
                             <TextBox HorizontalAlignment="Left" x:Name="Name" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
-                         materialDesign:HintAssist.Hint="Namee"
+                         materialDesign:HintAssist.Hint="Name"
                          materialDesign:HintAssist.HelperText="Ваше Имя"
                          Style="{DynamicResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="179" >
                             </TextBox>

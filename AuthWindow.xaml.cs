@@ -74,6 +74,7 @@ namespace TestUsers
                     else TextResult.Text = "Пользователь не найден";
                 }
             }
+            else TextResult.Text = "Некорректные данные!";
         }
 
         private void Hyperlink_Window_Register_Click(object sender, RoutedEventArgs e)

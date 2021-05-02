@@ -39,6 +39,8 @@ namespace TestUsers
         }
 
         public Boolean Check_Login(TextBox Login, Border LoginBorder, string login)
+
+            //Сделать проверку раскладки и кол-во символов.
         {
             if (login.Length < 5)
             {
@@ -116,20 +118,26 @@ namespace TestUsers
 
             System.Text.RegularExpressions.Regex regex = null;
             regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
-            if (name.Length >= 2)
+            if (name.Length == 0)
+            {
+                Name.ToolTip = "Введите имя";
+                NameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+            if (name.Length <= 10)
             {
                 bool ru = true;
 
                 for (int i = 0; i < name.Length; i++)
                 {
                     if (name[i] >= 'A' & name[i] <= 'Z') ru = false;
-                    
+
                 }
 
                 if (!ru)
                 {
 
-                    Name.Name = "Доступна только русская раскладка";
+                    Name.ToolTip = "Доступна только русская раскладка";
                     NameBorder.BorderBrush = Brushes.Red;
                     return false;
                 }
@@ -145,9 +153,10 @@ namespace TestUsers
                 NameBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-            Name.ToolTip = "Некорректное имя";
+            Name.ToolTip = "Сократите ваше имя!";
             NameBorder.BorderBrush = Brushes.Red;
             return false;
+            
         }
 
         public Boolean Check_Surname(TextBox Surname, Border SurnameBorder, string surname)
@@ -156,7 +165,13 @@ namespace TestUsers
 
             System.Text.RegularExpressions.Regex regex = null;
             regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
-            if (surname.Length >= 2)
+            if (surname.Length == 0)
+            {
+                Surname.ToolTip = "Введите фамилию";
+                SurnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+            if (surname.Length <= 10)
             {
                 bool ru = true;
 
@@ -184,7 +199,7 @@ namespace TestUsers
                 SurnameBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-            Surname.ToolTip = "Некорректное имя";
+            Surname.ToolTip = "Сократите вашу фамилию!";
             SurnameBorder.BorderBrush = Brushes.Red;
             return false;
         }

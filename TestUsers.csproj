@@ -204,7 +204,7 @@
     <Resource Include="images\tests\textile_test_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\logo_company\logo_green.jpg" />
+    <Resource Include="images\logo_company\logo_green.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

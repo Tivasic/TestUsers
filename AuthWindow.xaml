@@ -12,7 +12,7 @@
         Title="Авторизация" MinHeight="600" MinWidth="900">
     <Grid UseLayoutRounding="True" Background="White">
         <StackPanel>
-            <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 0" Source="images\logo_company\logo_green.jpg"></Image>
+            <Image HorizontalAlignment="Right" MinWidth ="180" Height="200"  Margin="0 20 40 0" Source="images\logo_company\logo_green.png" Width="180"></Image>
         </StackPanel>
         <Border MinWidth="400" MaxWidth="500" Margin="15" Background="White" VerticalAlignment="Center" Padding="40" CornerRadius="20">
             <Border.Effect>
@@ -55,17 +55,16 @@
                 </StackPanel>
             </StackPanel>
         </Border>
-        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
+        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult" Margin="0,159,0,0">
             <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="15" Orientation="Vertical">
+                <StackPanel x:Name="StackPanelResult"  Margin="15" Orientation="Vertical">
                     <TextBlock x:Name="TextResult"></TextBlock>
-                    <Button x:Name="ButtonResult"
+                    <Button x:Name="ButtonResult" 
                             Margin="0 10 0 0"
                             Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
                             Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо"
                             Click="Dialog_Button">
                     </Button>
-                    
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>

@@ -25,13 +25,13 @@
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Имя" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,27,653,21"/>
+            <Label Content="Имя" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,32,653,16"/>
 
             <Border  x:Name="NameBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Name" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
-                                 VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
+                                 VerticalAlignment="Center" FontSize="22" FontFamily="Poppins">
                 </TextBox>
             </Border>
         </Grid>
@@ -47,7 +47,7 @@
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Surname" Margin="10,5,9,0"  BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
-                                 VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
+                                 VerticalAlignment="Center" FontSize="22" FontFamily="Poppins">
                 </TextBox>
             </Border>
         </Grid>
@@ -57,13 +57,13 @@
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Компания" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,29,653,19"/>
+            <Label Content="Компания" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,31,653,17"/>
 
             <Border x:Name="CompanyBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Company" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
-                                 VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
+                                 VerticalAlignment="Center" FontSize="22" FontFamily="Poppins">
                 </TextBox>
             </Border>
         </Grid>
