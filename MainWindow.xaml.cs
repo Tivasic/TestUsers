@@ -93,7 +93,7 @@ namespace TestUsers
 
         private void Button_Click_Programm_Exit(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
     }
 }
