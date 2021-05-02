@@ -8,7 +8,7 @@
         mc:Ignorable="d" Height="648" Width="838"
         Background="White">
 
-    <Grid>
+    <Grid x:Name="GridMain">
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
             <StackPanel Orientation="Vertical">
                 <Label Content="Личный кабинет" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
@@ -19,72 +19,48 @@
                 </Label>
             </StackPanel>
         </Grid>
-        <Grid Margin="25,167,13,411">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="377">
-                </ColumnDefinition>
-                <ColumnDefinition Width="Auto" MinWidth="470"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="Пароль" Grid.Column="0" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="10,18,282,12" />
-
-            <Border x:Name="PasswordBorder_1" Height="56" CornerRadius="16" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True"  Grid.Column="0" Margin="100,6,88,8">
-                <PasswordBox HorizontalAlignment="Left" x:Name="Password_1" Margin="10 5 0 0" BorderThickness="0" Foreground="Black" Background="Transparent"
-                                 Style="{StaticResource MaterialDesignPasswordBox}" 
-                                 VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins" Width="177">
-                </PasswordBox>
-            </Border>
-
-            <Label Content="Повторите пароль" Grid.Column="1" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="36" Margin="10,20,282,14" />
-            <Border x:Name="PasswordBorder_2" Height="58" CornerRadius="16" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True"  Grid.Column="1" Margin="178,6,99,6">
-                <PasswordBox  HorizontalAlignment="Left" x:Name="Password_2" Margin="5 5 0 0" BorderThickness="0" Foreground="Black" Background="Transparent"
-                                 Style="{StaticResource MaterialDesignPasswordBox}" 
-                                 VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins" Width="182"/>
-            </Border>
-        </Grid>
-        <Grid Margin="10,242,0,318">
+        <Grid Margin="10,164,0,396">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="764">
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Имя" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,25,653,23"/>
+            <Label Content="Имя" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,27,653,21"/>
 
             <Border  x:Name="NameBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="116,11,0,11">
+                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Name" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
                                  VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
                 </TextBox>
             </Border>
         </Grid>
-        <Grid Margin="0,335,10,225">
+        <Grid Margin="10,257,10,303">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="764">
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Фамилия" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,25,653,23"/>
+            <Label Content="Фамилия" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,31,653,17"/>
 
             <Border x:Name="SurnameBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="126,11,65,11" Grid.ColumnSpan="2">
+                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Surname" Margin="10,5,9,0"  BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
                                  VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
                 </TextBox>
             </Border>
         </Grid>
-        <Grid Margin="-3,423,13,137">
+        <Grid Margin="10,345,13,215">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="764">
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Компания" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,25,653,23"/>
+            <Label Content="Компания" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,29,653,19"/>
 
             <Border x:Name="CompanyBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="126,11,65,11" Grid.ColumnSpan="2">
+                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
                 <TextBox x:Name="Company" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
                                  VerticalAlignment="Bottom" FontSize="22" FontFamily="Poppins">
@@ -92,20 +68,42 @@
             </Border>
         </Grid>
 
-        <Button
-                        UseLayoutRounding="True"
-                        
-                        Style="{DynamicResource RoundButtonTemplate}"
-                             VerticalAlignment="Center" HorizontalAlignment="Center"
-                            Width="200" Height="56"
-                            Click="Button_Click" Content="Сохранить" Cursor="Hand" Margin="318,511,320,81">
-
-
+        <Button UseLayoutRounding="True"
+                Style="{DynamicResource RoundButtonTemplate}"
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="200" Height="56"
+                Click="Button_Click" Content="Сохранить" Cursor="Hand" Margin="318,461,320,131"
+                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}">
             <Button.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom" >
+            <Grid Width="838" Height="75">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Чтобы изменить пароль, " FontSize="16"  Margin="39,0,20,5" FontFamily="Poppins" Foreground="#4E4B66"></TextBlock>
+                <TextBlock Margin="226,0,19,0" FontFamily="Poppins" FontSize="16" Grid.ColumnSpan="2">
+                            <Hyperlink  Click="Hyperlink_Change_Password" TextDecorations="Underline" Foreground="#4E4B66">нажмите сюда</Hyperlink>
+                </TextBlock>
+            </Grid>
+        </StackPanel>
+        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="TextResult"></TextBlock>
+                    <Button 
+                        Margin="0 10 0 0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
+                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо">
+                    </Button>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </UserControl>
 

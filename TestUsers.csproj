@@ -89,6 +89,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlChangePassword.xaml.cs">
+      <DependentUpon>UserControlChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlMainPage.xaml.cs">
       <DependentUpon>UserControlMainPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

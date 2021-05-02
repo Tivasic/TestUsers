@@ -83,7 +83,7 @@ namespace TestUsers
             }
         }
 
-        private void Button_Window_Register_Click(object sender, RoutedEventArgs e)
+        private void Hyperlink_Window_Register_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();

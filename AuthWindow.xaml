@@ -31,7 +31,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Впервые с нами?" HorizontalAlignment="Center" FontSize="14"  Margin="70,0,30,5" FontFamily="Poppins"></TextBlock>
                         <TextBlock Margin="185,0,25,0" FontFamily="Poppins" FontSize="14" Grid.ColumnSpan="2">
-                            <Hyperlink Style="{StaticResource MaterialDesignSubtitle2Hyperlink}" Click ="Button_Window_Register_Click" TextDecorations="Underline" Foreground="#279A44">Зарегистрируйтесь</Hyperlink>
+                            <Hyperlink Style="{StaticResource MaterialDesignSubtitle2Hyperlink}" Click ="Hyperlink_Window_Register_Click" TextDecorations="Underline" Foreground="#279A44">Зарегистрируйтесь</Hyperlink>
                         </TextBlock>
                     </Grid>
                 </StackPanel>

@@ -23,7 +23,6 @@ namespace TestUsers
     {
 
         public User DataUser { get; set; }
-
  
         public MainWindow()
         {
@@ -36,13 +35,21 @@ namespace TestUsers
 
         public void ChangeUserName()
         {
-            UserName.Text = DataUser.Name + " " + DataUser.Surname;
+            if (DataUser == null)
+            {
+                this.UserName.Text = "User";
+            }
+            else
+            {
+                this.UserName.Text = DataUser.Name + " " + DataUser.Surname;
+            }
         }
 
-        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             UserControl usc;
+            ChangeUserName();
             GridMain.Children.Clear();
             string CurrentItem;
             CurrentItem = (((ListViewItem)((ListView)sender).SelectedItem).Name);
@@ -68,10 +75,12 @@ namespace TestUsers
 
             if (CurrentItem == "PersonalAccount")
             {
-                UserControlPersonalAccount A = new UserControlPersonalAccount();
-                A.DataUser = DataUser;
-                A.FillingFields();
-                GridMain.Children.Add(A);
+                UserControlPersonalAccount usc1 = new UserControlPersonalAccount
+                {
+                    DataUser = DataUser
+                };
+                usc1.FillingFields();
+                GridMain.Children.Add(usc1);
             }
         }
     }

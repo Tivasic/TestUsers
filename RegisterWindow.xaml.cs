@@ -26,19 +26,19 @@ namespace TestUsers
             db = new db();
         }
 
-        private void Clear_PasswordBorder_1()
+        public void Clear_PasswordBorder_1()
         {
             Password_1.ToolTip = null;
             PasswordBorder_1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        private void Clear_PasswordBorder_2()
+        public void Clear_PasswordBorder_2()
         {
             Password_2.ToolTip = null;
             PasswordBorder_2.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        private Boolean Check_Login(string login)
+        public Boolean Check_Login(TextBox Login, Border LoginBorder, string login)
         {
             if (login.Length < 5)
             {
@@ -65,7 +65,7 @@ namespace TestUsers
 
         }
 
-        private Boolean Check_Password(string password_1, string password_2)
+        public Boolean Check_Password(PasswordBox Password_1, PasswordBox Password_2, Border PasswordBorder_1, Border PasswordBorder_2, string password_1, string password_2)
         {
             if (password_1.Length >= 5)
             {
@@ -110,7 +110,7 @@ namespace TestUsers
             return false;
         }
 
-        private Boolean Check_Name(string name)
+        public Boolean Check_Name(TextBox Name, Border NameBorder, string name)
         {
             //Модифицировать проверку на специальные символы. Добавить проверка пробела.
 
@@ -128,7 +128,8 @@ namespace TestUsers
 
                 if (!ru)
                 {
-                    Name.ToolTip = "Доступна только русская раскладка";
+
+                    Name.Name = "Доступна только русская раскладка";
                     NameBorder.BorderBrush = Brushes.Red;
                     return false;
                 }
@@ -149,7 +150,7 @@ namespace TestUsers
             return false;
         }
 
-        private Boolean Check_Surname(string surname)
+        public Boolean Check_Surname(TextBox Surname, Border SurnameBorder, string surname)
         {
             //Модифицировать проверку на специальные символы. Добавить проверка пробела.
 
@@ -188,7 +189,7 @@ namespace TestUsers
             return false;
         }
 
-        private Boolean Check_Сompany(string company)
+        public Boolean Check_Сompany(TextBox Company, Border CompanyBorder, string company)
         {
             if (company.Length < 5)
             {
@@ -212,11 +213,11 @@ namespace TestUsers
             string surname = Surname.Text.Trim();
             string company = Company.Text.Trim();
 
-            bool check_login = Check_Login(login);
-            bool check_password = Check_Password(password_1, password_2);
-            bool check_name = Check_Name(name);
-            bool check_surname = Check_Surname(surname);
-            bool check_company = Check_Сompany(company);
+            bool check_login = Check_Login(this.Login, this.LoginBorder, login);
+            bool check_password = Check_Password(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, password_1, password_2);
+            bool check_name = Check_Name(this.Name, this.NameBorder, name);
+            bool check_surname = Check_Surname(this.Surname, this.SurnameBorder, surname);
+            bool check_company = Check_Сompany(this.Company, this.CompanyBorder, company);
 
             if (check_login & check_password & check_name & check_surname & check_company)
             {
