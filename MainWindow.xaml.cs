@@ -21,7 +21,6 @@ namespace TestUsers
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public User DataUser { get; set; }
  
         public MainWindow()
