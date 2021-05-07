@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,16 +26,7 @@ namespace TestUsers
         {
             InitializeComponent();
             db = new db();
-            Question();
         }
-
-        public void Question()
-        {
-            List<User> users = db.Users.ToList();
-
-            Label1.Content = users[0];
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

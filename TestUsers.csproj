@@ -80,7 +80,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="db.cs" />
+    <Compile Include="models\db.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -89,20 +89,23 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlChangePassword.xaml.cs">
+    <Compile Include="UserControl\UserControlChangePassword.xaml.cs">
       <DependentUpon>UserControlChangePassword.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlMainPage.xaml.cs">
+    <Compile Include="UserControl\UserControlMainPage.xaml.cs">
       <DependentUpon>UserControlMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlManual.xaml.cs">
+    <Compile Include="UserControl\UserControlManual.xaml.cs">
       <DependentUpon>UserControlManual.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlPersonalAccount.xaml.cs">
+    <Compile Include="UserControl\UserControlPersonalAccount.xaml.cs">
       <DependentUpon>UserControlPersonalAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlTest.xaml.cs">
+      <DependentUpon>UserControlTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserControlTestSelection.xaml.cs">
+      <DependentUpon>UserControlTestSelection.xaml</DependentUpon>
     </Compile>
     <Page Include="AuthWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -127,23 +130,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlChangePassword.xaml">
+    <Page Include="UserControl\UserControlChangePassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlMainPage.xaml">
+    <Page Include="UserControl\UserControlMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestPage.xaml">
+    <Page Include="UserControl\UserControlManual.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlManual.xaml">
+    <Page Include="UserControl\UserControlPersonalAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControlPersonalAccount.xaml">
+    <Page Include="UserControl\UserControlTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\UserControlTestSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logo_company\logo_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

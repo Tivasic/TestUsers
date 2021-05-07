@@ -7,9 +7,6 @@
              mc:Ignorable="d" Height="648" Width="838"
              Background="White">
     <Grid>
-        <StackPanel>
-            <Label x:Name="Label1" Content="" Height="455"></Label>
-            <Button Content="Click" Click="Button_Click"></Button>
-        </StackPanel>
+
     </Grid>
 </UserControl>
