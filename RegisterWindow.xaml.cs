@@ -233,7 +233,6 @@ namespace TestUsers
             bool check_name = Check_Name(this.Name, this.NameBorder, name);
             bool check_surname = Check_Surname(this.Surname, this.SurnameBorder, surname);
             bool check_company = Check_Сompany(this.Company, this.CompanyBorder, company);
-
             if (check_login & check_password & check_name & check_surname & check_company)
             {
                 User user = new User(login, password_1, name, surname, company);

@@ -17,9 +17,9 @@ namespace TestUsers
     /// <summary>
     /// Логика взаимодействия для UserControlHome.xaml
     /// </summary>
-    public partial class UserControlTestPage : UserControl
+    public partial class UserControlTestSelection : UserControl
     {
-        public UserControlTestPage()
+        public UserControlTestSelection()
         {
             InitializeComponent();
         }

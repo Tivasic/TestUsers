@@ -53,9 +53,9 @@ namespace TestUsers
             string CurrentItem;
             CurrentItem = (((ListViewItem)((ListView)sender).SelectedItem).Name);
 
-            if (CurrentItem == "StartTest")
+            if (CurrentItem == "TestSelection")
             {
-                usc = new UserControlTestPage();
+                usc = new UserControlTest();
                 GridMain.Children.Add(usc);
 
             }

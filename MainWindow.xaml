@@ -23,7 +23,7 @@
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                           SelectionChanged="ListViewMenu_SelectionChanged">
 
-                    <ListViewItem x:Name="StartTest" Height="60">
+                    <ListViewItem x:Name="TestSelection" Height="60">
                         <StackPanel Orientation="Horizontal">
                             
                             <TextBlock Text="Пройти тестирование" VerticalAlignment="Center" Margin="20 10"/>
