@@ -21,7 +21,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/SmartTruck_test_logo.png"  Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/SmartTruck_test_logo.png"  Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="SmartTruck" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
@@ -34,7 +34,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/C_grid_test_logo.png" Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/C_grid_test_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="C#" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
@@ -47,7 +47,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/textile_test_logo.png" Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/textile_test_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="Текстиль" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
@@ -63,7 +63,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/SmartTruck+_test_logo.png" Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/SmartTruck+_test_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="SmartTruck+" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" FontFamily="Poppins" Width="155"/>
@@ -76,7 +76,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/C++_test_logo.png" Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/C++_test_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="C++" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
@@ -89,7 +89,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="images/tests/LGIP_test_logo.png" Margin="-20,0,-18,0"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/LGIP_test_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
                         <Label Content="ЛЖИП" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>

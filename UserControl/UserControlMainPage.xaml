@@ -26,7 +26,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/about_company.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_company.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
                         <Label Content="О компании" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
@@ -44,7 +44,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/about_test.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_test.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
                         <Label Content="О тесте" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
@@ -62,7 +62,7 @@
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="images/ten_years.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/ten_years.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
                         <Label Content="Нам 10 лет!" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
