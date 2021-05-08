@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace TestUsers
 {
-    public class User: INotifyPropertyChanged
+    public class User
     {
         public int id { get; set; }
         private string login, password, name, surname, company;
@@ -15,7 +15,6 @@ namespace TestUsers
             {
                 if (value == login) return;
                 login = value;
-                OnPropertyChanged();
             }
         }
 
@@ -26,7 +25,6 @@ namespace TestUsers
             {
                 if (value == password) return;
                 password = value;
-                OnPropertyChanged();
             }
         }
 
@@ -37,7 +35,6 @@ namespace TestUsers
             {
                 if (value == name) return;
                 name = value;
-                OnPropertyChanged();
             }
         }
 
@@ -48,7 +45,6 @@ namespace TestUsers
             {
                 if (value == surname) return;
                 surname = value;
-                OnPropertyChanged();
             }
         }
 
@@ -59,7 +55,6 @@ namespace TestUsers
             {
                 if (value == company) return;
                 company = value;
-                OnPropertyChanged();
             }
         }
 
@@ -74,16 +69,5 @@ namespace TestUsers
             this.company = company;
         }
 		
-		#region InotifyPropertyChange
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        #endregion
     }
 }

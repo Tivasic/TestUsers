@@ -55,7 +55,7 @@ namespace TestUsers
 
             if (CurrentItem == "TestSelection")
             {
-                usc = new UserControlTest();
+                usc = new UserControlTestSelection();
                 GridMain.Children.Add(usc);
 
             }
