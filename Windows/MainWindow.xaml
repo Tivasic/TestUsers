@@ -10,14 +10,14 @@
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="648" Width="838"/>
         <Grid Height="46" VerticalAlignment="Top" Background="White" Margin="250,0,0,0">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Width="250" Margin="0,0,2,0">
-                <Image HorizontalAlignment="Right" Source="images/icon_user.png" Margin="0 5 10 5"></Image>
+                <Image HorizontalAlignment="Right" Source="/TestUsers;component/images/icon_user.png" Margin="0 5 10 5"></Image>
                 <TextBlock x:Name="UserName"  VerticalAlignment="Bottom" Width="180" Height="23" FontSize="16" Foreground="#FF6E916F" FontFamily="Poppins" Margin="0,10,0,8"/>
             </StackPanel>
         </Grid>
         <Border Width="250" HorizontalAlignment="Left" Background="#BA114F21" CornerRadius="0, 10, 10, 0">
             <Grid x:Name="GridMenu">
             <StackPanel>
-                    <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 70" Source="images\logo_company\logo_white.png"></Image>
+                    <Image HorizontalAlignment="Right" MinWidth ="180" Height="160"  Margin="0 20 40 70" Source="/TestUsers;component/images/logo_company/logo_white.png"></Image>
                 <ListView x:Name="ListViewMenu"
                           Foreground="White"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" 

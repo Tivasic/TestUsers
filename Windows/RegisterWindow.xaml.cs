@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestUsers.models;
 
 namespace TestUsers
 {
@@ -19,11 +20,9 @@ namespace TestUsers
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        db db;
         public RegisterWindow()
         {
             InitializeComponent();
-            db = new db();
         }
 
         public void Clear_PasswordBorder_1()
@@ -39,32 +38,23 @@ namespace TestUsers
         }
 
         public Boolean Check_Login(TextBox Login, Border LoginBorder, string login)
-
-            //Сделать проверку раскладки и кол-во символов.
-        {
+        { 
             if (login.Length < 5)
             {
                 Login.ToolTip = "Это поле введено некорректно!";
                 LoginBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-            User uniq_login = null;
-            using (db context = new db())
-            {
-                uniq_login = db.Users.Where(b => b.Login == login).FirstOrDefault();
-
-            }
-            if (uniq_login != null)
+            bool UniqueLogin = DataWorker.CheckUniqueLogin(login);
+            if (UniqueLogin)
             {
                 Login.ToolTip = "Этот логин зарегистрирован";
                 LoginBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-
             Login.ToolTip = null;
             LoginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
             return true;
-
         }
 
         public Boolean Check_Password(PasswordBox Password_1, PasswordBox Password_2, Border PasswordBorder_1, Border PasswordBorder_2, string password_1, string password_2)
@@ -235,10 +225,8 @@ namespace TestUsers
             bool check_company = Check_Сompany(this.Company, this.CompanyBorder, company);
             if (check_login & check_password & check_name & check_surname & check_company)
             {
-                User user = new User(login, password_1, name, surname, company);
-                db.Users.Add(user);
-                db.SaveChanges();
-                
+                DataWorker.CreatePosition(login, password_1, name, surname, company);
+
                 TextResult.Text = "Вы успешно зарегистрировались";
             }
             else
@@ -246,7 +234,6 @@ namespace TestUsers
                 TextResult.Text = "Повторите попытку регистрации";
             }
         }
-
         private void MouseClick(object sender, MouseButtonEventArgs e)
         {
             AuthWindow authwindow = new AuthWindow();

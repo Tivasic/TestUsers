@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestUsers.models;
 
 namespace TestUsers
 {
@@ -20,12 +21,10 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlChangePassword : UserControl
     {
-        db db;
         public User DataUser { get; set; }
         public UserControlChangePassword()
         {
             InitializeComponent();
-            db = new db();
         }
 
         public void Clear_CurrentPasswordBorder()
@@ -36,17 +35,19 @@ namespace TestUsers
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string current_password = CurrentPassword.Password.Trim();
-            string password_1 = Password_1.Password.Trim();
-            string password_2 = Password_2.Password.Trim();
+            MainWindow mainwindow = new MainWindow();
+            mainwindow.ChangeUserName();
+            string Current_Password = CurrentPassword.Password.Trim();
+            string NewPassword_1 = Password_1.Password.Trim();
+            string NewPassword_2 = Password_2.Password.Trim();
             bool check_password;
 
             RegisterWindow registerWindow = new RegisterWindow();
 
-            if (DataUser.Password == current_password)
+            if (DataUser.Password.Trim() == Current_Password)
             {
                 Clear_CurrentPasswordBorder();
-                check_password = registerWindow.Check_Password(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, password_1, password_2);
+                check_password = registerWindow.Check_Password(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, NewPassword_1, NewPassword_2);
             }
             else
             {
@@ -57,12 +58,10 @@ namespace TestUsers
 
             if (check_password)
             {
-                db.Users.Attach(DataUser);
-                DataUser.Password = password_1;
-                db.SaveChanges();
+                DataUser = DataWorker.Change_Password(DataUser, NewPassword_1);
                 MainWindow mainWindow = new MainWindow
                 {
-                    DataUser = DataUser
+                   DataUser = DataUser
                 };
                 TextResult.Text = "Вы успешно сменили пароль";
             }

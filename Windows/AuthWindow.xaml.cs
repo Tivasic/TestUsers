@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestUsers.Connected_Services;
+using TestUsers.models;
 
 namespace TestUsers
 {
@@ -20,12 +22,10 @@ namespace TestUsers
     /// </summary>
     public partial class AuthWindow : Window
     {
-        db db;
         public User DataUser { get; set; }
         public AuthWindow()
         {
             InitializeComponent();
-            db = new db();
         }
 
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
@@ -60,12 +60,7 @@ namespace TestUsers
             {
                 if (password.Length >= 5)
                 {
-                    
-                    using (db context = new db())
-                    {
-                        DataUser = db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault();
-
-                    }
+                    DataUser = DataWorker.Auth_User(login, password);
 
                     if (DataUser != null)
                     {

@@ -12,7 +12,7 @@
         Title="Авторизация" MinHeight="600" MinWidth="900">
     <Grid UseLayoutRounding="True" Background="White">
         <StackPanel>
-            <Image HorizontalAlignment="Right" MinWidth ="180" Height="200"  Margin="0 20 40 0" Source="images\logo_company\logo_green.png" Width="180"></Image>
+            <Image HorizontalAlignment="Right" MinWidth ="180" Height="200"  Margin="0 20 40 0" Source="/TestUsers;component/images/logo_company/logo_green.png" Width="180"></Image>
         </StackPanel>
         <Border MinWidth="400" MaxWidth="500" Margin="15" Background="White" VerticalAlignment="Center" Padding="40" CornerRadius="20">
             <Border.Effect>

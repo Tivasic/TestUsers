@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestUsers.models;
 
 namespace TestUsers
 {
@@ -20,53 +21,51 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlPersonalAccount : UserControl
     {
-        db db;
         public User DataUser { get; set; }
         public UserControlPersonalAccount()
         {
             InitializeComponent();
-            db = new db();
         }
 
         public void FillingFields()
         {
-            Name.Text = DataUser.Name;
-            Surname.Text = DataUser.Surname;
-            Company.Text = DataUser.Company;
+            Name.Text = DataUser.Name.Trim();
+            Surname.Text = DataUser.Surname.Trim();
+            Company.Text = DataUser.Company.Trim();
         }
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
-            string name = Name.Text.Trim();
-            string surname = Surname.Text.Trim();
-            string company = Company.Text.Trim();
+            string NewName = Name.Text.Trim();
+            string NewSurname = Surname.Text.Trim();
+            string NewCompany = Company.Text.Trim();
             bool check_name;
             bool check_surname;
             bool check_company;
 
             RegisterWindow registerWindow = new RegisterWindow();
 
-            if (DataUser.Name != name)
+            if (DataUser.Name != NewName)
             {
-                check_name = registerWindow.Check_Name(this.Name, this.NameBorder, name);
+                check_name = registerWindow.Check_Name(this.Name, this.NameBorder, NewName);
             }
             else
             {
                 check_name = true;
             }
 
-            if (DataUser.Surname != surname)
+            if (DataUser.Surname != NewSurname)
             {
-                check_surname = registerWindow.Check_Surname(this.Surname, this.SurnameBorder, surname);
+                check_surname = registerWindow.Check_Surname(this.Surname, this.SurnameBorder, NewSurname);
             }
             else
             {
                 check_surname = true;
             }
 
-            if (DataUser.Company != company)
+            if (DataUser.Company != NewCompany)
             {
-                check_company = registerWindow.Check_Сompany(this.Company, this.CompanyBorder, company);
+                check_company = registerWindow.Check_Сompany(this.Company, this.CompanyBorder, NewCompany);
             }
             else
             {
@@ -75,14 +74,10 @@ namespace TestUsers
 
             if (check_name & check_surname & check_company)
             {
-                db.Users.Attach(DataUser);
-                DataUser.Name = name;
-                DataUser.Surname = surname;
-                DataUser.Company = company;
-                db.SaveChanges();
+                DataUser = DataWorker.EditUser(DataUser, NewName, NewSurname, NewCompany);
                 MainWindow mainWindow = new MainWindow
                 {
-                    DataUser = DataUser
+                   DataUser = DataUser
                 };
                 TextResult.Text = "Вы успешно сменили личные данные";
             }

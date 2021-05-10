@@ -60,8 +60,9 @@ namespace TestUsers
 
         public User() { }
 
-        public User(string login, string password, string name, string surname, string company)
+        public User(int id, string login, string password, string name, string surname, string company)
         {
+            this.id = id;
             this.login = login;
             this.password = password;
             this.name = name;

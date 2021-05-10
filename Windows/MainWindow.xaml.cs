@@ -40,7 +40,7 @@ namespace TestUsers
             }
             else
             {
-                this.UserName.Text = DataUser.Name + " " + DataUser.Surname;
+                this.UserName.Text = DataUser.Name.Trim() + " " + DataUser.Surname.Trim();
             }
         }
 

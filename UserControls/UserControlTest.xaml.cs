@@ -21,11 +21,9 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlTest : UserControl
     {
-        db db;
         public UserControlTest()
         {
             InitializeComponent();
-            db = new db();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
