@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestUsers.Connected_Services;
 using TestUsers.models;
 
 namespace TestUsers
