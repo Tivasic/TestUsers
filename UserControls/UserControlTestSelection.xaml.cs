@@ -26,7 +26,11 @@ namespace TestUsers
 
         private void Border_SmartTruck_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            UserControlTest usc = new UserControlTest
+            {
+                Name_Test = "SmartTruck"
+            };
+            GridMain.Children.Add(usc);
         }
         private void Border_SmartTruck_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

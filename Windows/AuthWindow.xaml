@@ -37,10 +37,18 @@
                 </StackPanel>
 
                 <materialDesign:PackIcon Kind="Account" Foreground="{Binding ElementName=Login, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 0 0 -35" Height="20" Width="18" ></materialDesign:PackIcon>
-                <TextBox x:Name="Login"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="20 0 0 0"></TextBox>
+                <TextBox x:Name="Login"  materialDesign:HintAssist.Hint="Login" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="20 0 0 0" KeyDown="TextBox_KeyDown">
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
+                    </TextBox.InputBindings>
+                </TextBox>
 
                 <materialDesign:PackIcon Kind="Password" Foreground="{Binding ElementName=Password, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 0 0 -33"></materialDesign:PackIcon>
-                <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="20 0 0 0"></PasswordBox>
+                <PasswordBox x:Name="Password" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="20 0 0 0" KeyDown="TextBox_KeyDown">
+                    <PasswordBox.InputBindings>
+                        <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"/>
+                    </PasswordBox.InputBindings>
+                </PasswordBox>
 
                 <StackPanel>
                     <Button Style="{DynamicResource RoundButtonTemplate}"

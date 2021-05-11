@@ -209,7 +209,7 @@ namespace TestUsers
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
             string password_1 = Password_1.Password.Trim();
@@ -227,11 +227,11 @@ namespace TestUsers
             {
                 DataWorker.CreatePosition(login, password_1, name, surname, company);
 
-                TextResult.Text = "Вы успешно зарегистрировались";
+                this.TextResult.Text = "Вы успешно зарегистрировались";
             }
             else
             {
-                TextResult.Text = "Повторите попытку регистрации";
+                this.TextResult.Text = "Повторите попытку регистрации";
             }
         }
         private void MouseClick(object sender, MouseButtonEventArgs e)
@@ -244,6 +244,25 @@ namespace TestUsers
         private void Dialog_Button(object sender, RoutedEventArgs e)
         {
             if (TextResult.Text == "Вы успешно зарегистрировались")
+            {
+                AuthWindow authwindow = new AuthWindow();
+                authwindow.Show();
+                Close();
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                RegisterButton_Click(sender, e);
+                DialogResult.IsOpen = true;
+            }
+        }
+
+        private void Close_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
             {
                 AuthWindow authwindow = new AuthWindow();
                 authwindow.Show();

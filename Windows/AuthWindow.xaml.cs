@@ -27,7 +27,7 @@ namespace TestUsers
             InitializeComponent();
         }
 
-        private void Button_Auth_Click(object sender, RoutedEventArgs e)
+        public void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
             string password = Password.Password.Trim();
@@ -63,12 +63,12 @@ namespace TestUsers
 
                     if (DataUser != null)
                     {
-                        TextResult.Text = "Вы успешно авторизовались!";
+                        this.TextResult.Text = "Вы успешно авторизовались!";
                     }
-                    else TextResult.Text = "Пользователь не найден";
+                    else this.TextResult.Text = "Пользователь не найден";
                 }
             }
-            else TextResult.Text = "Некорректные данные!";
+            else this.TextResult.Text = "Некорректные данные!";
         }
 
         private void Hyperlink_Window_Register_Click(object sender, RoutedEventArgs e)
@@ -88,6 +88,15 @@ namespace TestUsers
                 MainWindow.ChangeUserName();
                 MainWindow.Show();
                 Close();
+            }
+        }
+
+       private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Auth_Click(sender, e);
+                DialogResult.IsOpen = true;
             }
         }
     }

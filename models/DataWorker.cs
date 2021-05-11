@@ -10,7 +10,6 @@ namespace TestUsers.models
 {
     public static class DataWorker
     {
-
         public static void CreatePosition(string login, string password, string name, string surname, string company)
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -73,6 +72,21 @@ namespace TestUsers.models
             }
             return DataUser;
         }
-
+        public static List<SmartTruck_Questions> GetAllQuestions()
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var result = db.SmartTruck_Questions.ToList();
+                return result;
+            }
+        }
+        public static List<SmartTruck_Answers> GetAllAnswers()
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var result = db.SmartTruck_Answers.ToList();
+                return result;
+            }
+        }
     }
 }
