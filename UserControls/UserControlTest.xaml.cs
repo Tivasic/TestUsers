@@ -114,8 +114,9 @@ namespace TestUsers
             if(i == Questions.Count)
             {
                 Timer.Stop();
-                GridTest.IsEnabled = false;
-                ShowResults();
+                UserControl usc;
+                usc = new UserControlResult();
+                GridMain.Children.Add(usc);
             }
             else
             {
@@ -126,7 +127,7 @@ namespace TestUsers
         // Кнопка для запуска теста
         public void StartTestingButton_Click(object sender, RoutedEventArgs e)
         {
-            GridTest.Visibility = Visibility.Visible;
+            GridMain.Visibility = Visibility.Visible;
             if(Name_Test == "SmartTruck")
             {
                  Questions = DataWorker.GetAllQuestions();

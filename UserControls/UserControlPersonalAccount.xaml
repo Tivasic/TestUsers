@@ -11,7 +11,7 @@
     <Grid x:Name="GridMain">
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
             <StackPanel Orientation="Vertical">
-                <Label Content="Личный кабинет" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
+                <Label Content="Личный кабинет" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
                 <Label HorizontalAlignment="Center" FontSize="18"  Margin="0,15,10,10" FontFamily="Poppins" Width="790">
                     <Label.Content>
                         <AccessText TextWrapping="Wrap" Text="Здесь вы можете изменить ваши данные, введенные при регистрации "/>

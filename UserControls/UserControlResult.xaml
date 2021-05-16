@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="TestUsers.UserControlResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:TestUsers"
+             mc:Ignorable="d" Height="648" Width="838"
+             Background="White" >
+    <Grid x:Name="GridMain">
+        <StackPanel Orientation="Vertical">
+            <Label Content="Результаты теста" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
+            <Label HorizontalAlignment="Center" FontSize="18" Margin="25,35,10,0" Width="803" FontFamily="Poppins" Foreground="#FF4E4B66">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" Text="Вы завершили тестирование. Спасибо за ваше участие. Данные о результатах будут переданы в вашу Организацию позднее." />
+                </Label.Content>
+            </Label>
+            <Grid Margin="25,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="181*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="622*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"  Content="Ваш результат: " HorizontalAlignment="Left" FontSize="24"  Margin="0 51 0 10" FontFamily="Poppins" Foreground="Black" Width="177"/>
+                <Label Grid.Column="1" x:Name="PercentResult" Content="0%" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
+            </Grid>
+            <Grid Margin="25,0,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="156*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="647*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0"  Content="Ваше время: " HorizontalAlignment="Left" FontSize="24"  Margin="0 51 0 10" FontFamily="Poppins" Foreground="Black" Width="177" Grid.ColumnSpan="2"/>
+                <Label Grid.Column="1" x:Name="TimeResult" Content="00:00" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
+            </Grid>
+            <Button x:Name="OpenMainWindowButton"
+            UseLayoutRounding="True"
+            Style="{DynamicResource RoundButtonTemplate}"
+            VerticalAlignment="Bottom" HorizontalAlignment="Center"
+            Width="246" Height="56"
+            Click="OpenMainWindowButton_Click"  Content="Вернуться на главную" Cursor="Hand" Margin="0,47" >
+                <Button.Effect>
+                    <DropShadowEffect Color="Black" ShadowDepth="1"/>
+                </Button.Effect>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

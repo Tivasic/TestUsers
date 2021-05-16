@@ -7,10 +7,10 @@
         mc:Ignorable="d" Height="648" Width="838"
         Background="White">
 
-    <Grid>
+    <Grid x:Name="GridMain">
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
             <StackPanel Orientation="Vertical">
-                <Label Content="Добро пожаловать!" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
+                <Label Content="Добро пожаловать!" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
                 <Label HorizontalAlignment="Center" FontSize="18"  Margin="0,15,10,10" FontFamily="Poppins" Width="790">
                     <Label.Content>
                         <AccessText TextWrapping="Wrap" Text="Это программа, предназначенная для проверки ваших знаний. Перед началом тестирования не забудьте ознакомиться с инструкцией. Удачи!"/>
@@ -20,7 +20,7 @@
         </Grid>
 
         <Grid Margin="30,156,30,10">
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutCompanyBorder_MouseLeftClick">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
@@ -38,7 +38,7 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutTestBorder_MouseLeftClick">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>

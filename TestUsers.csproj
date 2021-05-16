@@ -93,6 +93,9 @@
     <Compile Include="models\db.cs" />
     <Compile Include="models\SmartTruck_Answers.cs" />
     <Compile Include="models\SmartTruck_Questions.cs" />
+    <Compile Include="UserControls\UserControlResult.xaml.cs">
+      <DependentUpon>UserControlResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -120,6 +123,10 @@
       <DependentUpon>UserControlTestSelection.xaml</DependentUpon>
     </Compile>
     <Page Include="circularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UserControlResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

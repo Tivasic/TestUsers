@@ -8,9 +8,9 @@
         mc:Ignorable="d" Height="648" Width="838"
         Background="White" >
 
-    <Grid x:Name="GridTest" Visibility="Visible" >
+    <Grid x:Name="GridMain" Visibility="Visible" >
         <StackPanel >
-            <Label Content="Тест: " HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Width="818"/>
+            <Label Content="Тест: " HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Width="818" Foreground="#FF14142B"/>
             <Grid Margin="10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="295*">

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,24 +16,19 @@ using System.Windows.Shapes;
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для UserControlResult.xaml
     /// </summary>
-    public partial class UserControlMainPage: UserControl
+    public partial class UserControlResult : UserControl
     {
-        public UserControlMainPage()
+        public UserControlResult()
         {
             InitializeComponent();
         }
 
-        private void AboutCompanyBorder_MouseLeftClick(object sender, RoutedEventArgs e)
-        {
-            Process.Start("http://www.kg.ru/company/about/");
-        }
-
-        private void AboutTestBorder_MouseLeftClick(object sender, MouseButtonEventArgs e)
+        private void OpenMainWindowButton_Click(object sender, RoutedEventArgs e)
         {
             UserControl usc;
-            usc = new UserControlManual();
+            usc = new UserControlMainPage();
             GridMain.Children.Add(usc);
         }
     }

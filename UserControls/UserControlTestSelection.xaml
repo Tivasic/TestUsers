@@ -10,7 +10,7 @@
     <Grid x:Name="GridMain">
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
             <StackPanel Orientation="Vertical">
-                <Label Content="Доступные тестирования" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
+                <Label Content="Доступные тестирования" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
             </StackPanel>
         </Grid>
 
