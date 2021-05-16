@@ -93,7 +93,6 @@
     <Compile Include="models\db.cs" />
     <Compile Include="models\SmartTruck_Answers.cs" />
     <Compile Include="models\SmartTruck_Questions.cs" />
-    <Compile Include="models\typelist.cs" />
     <Compile Include="Windows\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -194,9 +193,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="test_db.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
