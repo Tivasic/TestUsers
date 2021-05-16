@@ -238,7 +238,7 @@ namespace TestUsers
         {
             AuthWindow authwindow = new AuthWindow();
             authwindow.Show();
-            Close();
+            this.Close();
         }
 
         private void Dialog_Button(object sender, RoutedEventArgs e)
@@ -247,7 +247,7 @@ namespace TestUsers
             {
                 AuthWindow authwindow = new AuthWindow();
                 authwindow.Show();
-                Close();
+                this.Close();
             }
         }
 
@@ -266,7 +266,7 @@ namespace TestUsers
             {
                 AuthWindow authwindow = new AuthWindow();
                 authwindow.Show();
-                Close();
+                this.Close();
             }
         }
     }

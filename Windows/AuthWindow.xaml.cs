@@ -75,7 +75,7 @@ namespace TestUsers
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
-            Close();
+            this.Close();
         }
         private void Dialog_Button(object sender, RoutedEventArgs e)
         {
@@ -87,7 +87,7 @@ namespace TestUsers
                 };
                 MainWindow.ChangeUserName();
                 MainWindow.Show();
-                Close();
+                this.Close();
             }
         }
 

@@ -6,26 +6,42 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TestUsers"
         mc:Ignorable="d" Height="648" Width="838"
-        Background="White">
+        Background="White" >
 
-    <Grid>
-        <StackPanel>
-            <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="38 35 0 0">
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Тест: " HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins"></Label>
-                    <Label x:Name="Question" HorizontalAlignment="Left" FontSize="24"  Margin="0,45,10,10" FontFamily="Poppins" Width="790">
-                        <Label.Content>
-                            <AccessText TextWrapping="Wrap" Text="Вы умеете отдыхать и расслабляться?"/>
-                        </Label.Content>
-                    </Label>
-                </StackPanel>
+    <Grid x:Name="GridTest" Visibility="Visible" >
+        <StackPanel >
+            <Label Content="Тест: " HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Width="818"/>
+            <Grid Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="295*">
+                    </ColumnDefinition>
+                    <ColumnDefinition Width="114*">
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" x:Name="Question" HorizontalAlignment="Left" FontSize="24"  Margin="25 45 0 0" FontFamily="Poppins" Width="790" Grid.ColumnSpan="2">
+                    <Label.Content>
+                        <AccessText TextWrapping="Wrap" Text="Вы умеете отдыхать и расслабляться?"/>
+                    </Label.Content>
+                </Label>
+                <Label x:Name="TimeLabel" Grid.Column="1" FontFamily="Poppins" FontSize="28" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FF279A44" Height="39" Margin="44,43,102,0" Width="82" FontWeight="Bold"/>
             </Grid>
-            <StackPanel x:Name="stackPanel" Margin="38,0,380,0">
-                <RadioButton x:Name="Answer_1" GroupName="Answers"  Content="" Margin="0,50,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                <RadioButton x:Name="Answer_2" GroupName="Answers"  Content="" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                <RadioButton x:Name="Answer_3" GroupName="Answers"  Content="" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                <RadioButton x:Name="Answer_4" GroupName="Answers"  Content="" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-            </StackPanel>
+            <Grid Margin="10,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="25 0 0 0">
+                    <RadioButton x:Name="Answer_1" GroupName="Answers" Margin="0,50,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_2" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_3" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_4" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                </StackPanel>
+                <local:circularProgressBar x:Name="circularProgressBar" Grid.Column="1" Value="0" ArcThickness="15" 
+                                        FontSize="18" FontFamily="Poppins" Foreground="#4E4B66" Width="128" Height="128" Margin="201,30,80,31" />
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Прогресс" FontFamily="Poppins" FontSize="14" Margin="235,105,110,67" Foreground="#FF6E7191" Width="64"/>
+            </Grid>
             <Button x:Name="NextQuestionButton" IsEnabled="False"
             UseLayoutRounding="True"
             Style="{DynamicResource RoundButtonTemplate}"
@@ -36,17 +52,20 @@
                     <DropShadowEffect Color="Black" ShadowDepth="1"/>
                 </Button.Effect>
             </Button>
-            <Button x:Name="NextQuestionButton_Copy" 
-                UseLayoutRounding="True"
-                Style="{DynamicResource RoundButtonTemplate}"
-                VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                Width="120" Height="40"
-                Click="NextQuestionButtonButton_Click2"  Content="Старт тест!" Cursor="Hand" Margin="38,22,0 0" >
-                <Button.Effect>
-                    <DropShadowEffect Color="Black" ShadowDepth="1"/>
-                </Button.Effect>
-            </Button>
         </StackPanel>
+        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel x:Name="StackPanelResult"  Margin="15" Orientation="Vertical">
+                    <TextBlock x:Name="TextResult" TextWrapping="Wrap"></TextBlock>
+                    <Button x:Name="ButtonResult" 
+                            Margin="0 10 0 0"
+                            Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
+                            Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Старт тест"
+                            Click="StartTestingButton_Click">
+                    </Button>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
     </Grid>
 </UserControl>
 
