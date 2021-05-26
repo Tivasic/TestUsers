@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace TestUsers
 {
-    public class SmartTruck_Answers
+    public class Textyle_Answers
     {
         public int id { get; set; }
         private string answer_1, answer_2, answer_3, answer_4;
@@ -46,9 +46,9 @@ namespace TestUsers
             }
         }
 
-        public SmartTruck_Answers() { }
+        public Textyle_Answers() { }
 
-        public SmartTruck_Answers(int id, string answer_1, string answer_2, string answer_3, string answer_4)
+        public Textyle_Answers(int id, string answer_1, string answer_2, string answer_3, string answer_4)
         {
             this.id = id;
             this.answer_1 = answer_1;
@@ -58,4 +58,3 @@ namespace TestUsers
         }
     }
 }
-

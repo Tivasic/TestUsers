@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,20 +73,40 @@ namespace TestUsers.models
             }
             return DataUser;
         }
-        public static List<SmartTruck_Questions> GetAllQuestions()
+        public static List<BaseModelQuestions> GetAllQuestions(string NameTest)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                var result = db.SmartTruck_Questions.ToList();
-                return result;
+                if (NameTest == "Тест №1")
+                {
+                    var all_questions = db.FirstTest_Questions.ToList();
+                    var result = all_questions.Cast<BaseModelQuestions>().ToList();
+                    return result;
+                }
+                else
+                {
+                    var all_questions = db.SecondTest_Questions.ToList();
+                    var result = all_questions.Cast<BaseModelQuestions>().ToList();
+                    return result;
+                }
             }
         }
-        public static List<SmartTruck_Answers> GetAllAnswers()
+        public static List<BaseModelAnswers> GetAllAnswers(string NameTest)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                var result = db.SmartTruck_Answers.ToList();
-                return result;
+                if (NameTest == "Тест №1")
+                {
+                    var all_answers = db.FirstTest_Answers.ToList();
+                    var result = all_answers.Cast<BaseModelAnswers>().ToList();
+                    return result;
+                }
+                else
+                {
+                    var all_answers = db.SecondTest_Answers.ToList();
+                    var result = all_answers.Cast<BaseModelAnswers>().ToList();
+                    return result;
+                }
             }
         }
     }

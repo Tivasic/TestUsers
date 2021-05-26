@@ -10,11 +10,15 @@ namespace TestUsers.models
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<SmartTruck_Questions> SmartTruck_Questions { get; set; }
-        public DbSet<SmartTruck_Answers> SmartTruck_Answers { get; set; }
+        public DbSet<SecondTest_Questions> SecondTest_Questions { get; set; }
+        public DbSet<FirstTest_Questions> FirstTest_Questions { get; set; }
+        public DbSet<FirstTest_Answers> FirstTest_Answers { get; set; }
+        public DbSet<SecondTest_Answers> SecondTest_Answers { get; set; }
         public DbSet<User> Users { get; set; }
 
         public ApplicationContext() : base("DefaultConnection") { }
 
     }
 }
+
+
