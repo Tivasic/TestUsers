@@ -94,8 +94,8 @@
     </Compile>
     <Compile Include="models\DataWorker.cs" />
     <Compile Include="models\db.cs" />
-    <Compile Include="models\SmartTruck_Answers.cs" />
-    <Compile Include="models\SmartTruck_Questions.cs" />
+    <Compile Include="models\Answers.cs" />
+    <Compile Include="models\Questions.cs" />
     <Compile Include="UserControls\UserControlResult.xaml.cs">
       <DependentUpon>UserControlResult.xaml</DependentUpon>
     </Compile>
@@ -220,24 +220,28 @@
     <Resource Include="images\about_test.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\ten_years.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\icon_user.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="images\tests\C_grid_test_logo.png" />
-    <Resource Include="images\tests\C++_test_logo.png" />
-    <Resource Include="images\tests\LGIP_test_logo.png" />
-    <Resource Include="images\tests\SmartTruck+_test_logo.png" />
-    <Resource Include="images\tests\SmartTruck_test_logo.png" />
-    <Resource Include="images\tests\textile_test_logo.png" />
+    <Resource Include="images\tests\SecondTest_logo.png" />
+    <Resource Include="images\tests\FifthTest_logo.png" />
+    <Resource Include="images\tests\FourthTest_logo.png" />
+    <Resource Include="images\tests\FirstTest_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logo_company\logo_green.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\logo_company\logo_green_ico.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\tests\SixthTest_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\tests\ThirdTest_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\your_feedback.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

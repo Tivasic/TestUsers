@@ -23,7 +23,7 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlTest : UserControl
     { 
-        public string Name_Test { get; set; }
+        public string NameTest { get; set; }
         public UserControlTest()
         {
             InitializeComponent();
@@ -32,8 +32,8 @@ namespace TestUsers
         DispatcherTimer Timer;
         TimeSpan CurrentTime;
 
-        List<SmartTruck_Questions> Questions;
-        List<SmartTruck_Answers> Answers;
+        List<BaseModelQuestions> Questions;
+        List<BaseModelAnswers> Answers;
 
         string CurrentAnswer;
         string Answer;
@@ -89,6 +89,7 @@ namespace TestUsers
         {
             int count = Questions.Count;
             StepValueProgressBar = 100 / count;
+            QuestionText.Text = Questions[i].Question.Trim();
             ShowAnswers();
         }
 
@@ -127,13 +128,10 @@ namespace TestUsers
         // Кнопка для запуска теста
         public void StartTestingButton_Click(object sender, RoutedEventArgs e)
         {
+            TestLabel.Content = NameTest;
             GridMain.Visibility = Visibility.Visible;
-            if(Name_Test == "SmartTruck")
-            {
-                 Questions = DataWorker.GetAllQuestions();
-                 Answers = DataWorker.GetAllAnswers();
-            }
-            // wh.Set();
+            Questions = DataWorker.GetAllQuestions(NameTest);
+            Answers = DataWorker.GetAllAnswers(NameTest);
             Dispatcher_Timer();
             ShowQuestion();
         }

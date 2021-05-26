@@ -10,7 +10,7 @@
 
     <Grid x:Name="GridMain" Visibility="Visible" >
         <StackPanel >
-            <Label Content="Тест: " HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Width="818" Foreground="#FF14142B"/>
+            <Label x:Name="TestLabel" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="35,25,0,10" FontFamily="Poppins" Width="818" Foreground="#FF14142B"/>
             <Grid Margin="10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="295*">
@@ -18,9 +18,9 @@
                     <ColumnDefinition Width="114*">
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" x:Name="Question" HorizontalAlignment="Left" FontSize="24"  Margin="25 45 0 0" FontFamily="Poppins" Width="790" Grid.ColumnSpan="2">
+                <Label Grid.Column="0"  HorizontalAlignment="Left" FontSize="24"  Margin="25 45 0 0" FontFamily="Poppins">
                     <Label.Content>
-                        <AccessText TextWrapping="Wrap" Text="Вы умеете отдыхать и расслабляться?"/>
+                        <AccessText x:Name="QuestionText" TextWrapping="Wrap"/>
                     </Label.Content>
                 </Label>
                 <Label x:Name="TimeLabel" Grid.Column="1" FontFamily="Poppins" FontSize="28" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FF279A44" Height="39" Margin="44,43,102,0" Width="82" FontWeight="Bold"/>

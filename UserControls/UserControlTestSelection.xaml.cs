@@ -28,33 +28,37 @@ namespace TestUsers
         {
             UserControlTest usc = new UserControlTest
             {
-                Name_Test = "SmartTruck"
+                NameTest = "Тест №1"
             };
             GridMain.Children.Add(usc);
         }
         private void Border_SmartTruck_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            UserControlTest usc = new UserControlTest
+            {
+                NameTest = "Тест №2"
+            };
+            GridMain.Children.Add(usc); 
         }
 
         private void Border_Textile_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            MessageBox.Show("Этот тест пока недоступен");
         }
 
         private void Border_C_plus_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            MessageBox.Show("Этот тест пока недоступен");
         }
 
         private void Border_LGIP_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            MessageBox.Show("Этот тест пока недоступен");
         }
 
         private void Border_C_grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("OKEEEEEEY");
+            MessageBox.Show("Этот тест пока недоступен");
         }
     }
 }

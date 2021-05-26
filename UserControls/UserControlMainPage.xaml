@@ -56,19 +56,19 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
+            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="YourFeedbackBorder_MouseLeftClick">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/ten_years.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/your_feedback.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
-                        <Label Content="Нам 10 лет!" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
+                        <Label Content="Ваше мнение" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
                         <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
                             <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Ура!"/>
+                                <AccessText TextWrapping="Wrap" Text="Поделитесь им с нами."/>
                             </Label.Content>
                         </Label>
                     </StackPanel>

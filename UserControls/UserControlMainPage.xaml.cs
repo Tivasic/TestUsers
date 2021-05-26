@@ -31,6 +31,11 @@ namespace TestUsers
             Process.Start("http://www.kg.ru/company/about/");
         }
 
+        private void YourFeedbackBorder_MouseLeftClick(object sender, RoutedEventArgs e)
+        {
+            Process.Start("http://www.kg.ru/contacts/");
+        }
+
         private void AboutTestBorder_MouseLeftClick(object sender, MouseButtonEventArgs e)
         {
             UserControl usc;
