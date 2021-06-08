@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using TestUsers.models;
 
 namespace TestUsers
@@ -25,19 +17,22 @@ namespace TestUsers
             InitializeComponent();
         }
 
-        public void Clear_PasswordBorder_1()
+        //Метод очистки поля с первым паролем.
+        public void ClearPasswordBorder1()
         {
             Password_1.ToolTip = null;
             PasswordBorder_1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        public void Clear_PasswordBorder_2()
+        //Метод очистки поля со вторым паролем.
+        public void ClearPasswordBorder2()
         {
             Password_2.ToolTip = null;
             PasswordBorder_2.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        public Boolean Check_Login(TextBox Login, Border LoginBorder, string login)
+        //Метод проверка вводимого логина.
+        public Boolean CheckLogin(TextBox Login, Border LoginBorder, string login)
         { 
             if (login.Length < 5)
             {
@@ -57,7 +52,8 @@ namespace TestUsers
             return true;
         }
 
-        public Boolean Check_Password(PasswordBox Password_1, PasswordBox Password_2, Border PasswordBorder_1, Border PasswordBorder_2, string password_1, string password_2)
+        //Метод проверки вводимых паролей.
+        public Boolean CheckPassword(PasswordBox Password_1, PasswordBox Password_2, Border PasswordBorder_1, Border PasswordBorder_2, string password_1, string password_2)
         {
             if (password_1.Length >= 5)
             {
@@ -75,14 +71,14 @@ namespace TestUsers
                     PasswordBorder_1.BorderBrush = Brushes.Red;
                     return false;
                 }
-                Clear_PasswordBorder_1();
+                ClearPasswordBorder1();
                 if (!number)
                 {
                     Password_1.ToolTip = "Добавьте минимум одну цифру";
                     PasswordBorder_1.BorderBrush = Brushes.Red;
                     return false;
                 }
-                Clear_PasswordBorder_1();
+                ClearPasswordBorder1();
                 if (password_1 != password_2)
                 {
                     PasswordBorder_1.BorderBrush = Brushes.Red;
@@ -91,8 +87,8 @@ namespace TestUsers
                     Password_2.ToolTip = "Пароли не совпадают";
                     return false;
                 }
-                Clear_PasswordBorder_1();
-                Clear_PasswordBorder_2();
+                ClearPasswordBorder1();
+                ClearPasswordBorder2();
                 return true;
             }
             Password_1.ToolTip = "Пароль минимум 5 символов";
@@ -102,12 +98,10 @@ namespace TestUsers
             return false;
         }
 
-        public Boolean Check_Name(TextBox Name, Border NameBorder, string name)
+        //Метод проверки вводимого имени.
+        public Boolean CheckName(TextBox Name, Border NameBorder, string name)
         {
-            //Модифицировать проверку на специальные символы. Добавить проверка пробела.
-
-            System.Text.RegularExpressions.Regex regex = null;
-            regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
             if (name.Length == 0)
             {
                 Name.ToolTip = "Введите имя";
@@ -131,6 +125,7 @@ namespace TestUsers
                     NameBorder.BorderBrush = Brushes.Red;
                     return false;
                 }
+
                 Name.ToolTip = null;
                 NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
                 if (regex.IsMatch(Name.Text))
@@ -139,6 +134,7 @@ namespace TestUsers
                     NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
                     return true;
                 }
+
                 Name.ToolTip = "Запрещен ввод цифр и символов";
                 NameBorder.BorderBrush = Brushes.Red;
                 return false;
@@ -149,11 +145,10 @@ namespace TestUsers
             
         }
 
-        public Boolean Check_Surname(TextBox Surname, Border SurnameBorder, string surname)
+        //Метод проверки вводимой фамилии.
+        public Boolean CheckSurname(TextBox Surname, Border SurnameBorder, string surname)
         {
-            //Модифицировать проверку на специальные символы. Добавить проверка пробела.
-
-            System.Text.RegularExpressions.Regex regex = null;
+            System.Text.RegularExpressions.Regex regex;
             regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
             if (surname.Length == 0)
             {
@@ -194,7 +189,8 @@ namespace TestUsers
             return false;
         }
 
-        public Boolean Check_Сompany(TextBox Company, Border CompanyBorder, string company)
+        //Метод проверки вводимой компании.
+        public Boolean CheckСompany(TextBox Company, Border CompanyBorder, string company)
         {
             if (company.Length < 5)
             {
@@ -206,9 +202,9 @@ namespace TestUsers
             Company.ToolTip = null;
             CompanyBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
             return true;
-
         }
 
+        //Метод регистрации пользователя.
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
@@ -218,11 +214,11 @@ namespace TestUsers
             string surname = Surname.Text.Trim();
             string company = Company.Text.Trim();
 
-            bool check_login = Check_Login(this.Login, this.LoginBorder, login);
-            bool check_password = Check_Password(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, password_1, password_2);
-            bool check_name = Check_Name(this.Name, this.NameBorder, name);
-            bool check_surname = Check_Surname(this.Surname, this.SurnameBorder, surname);
-            bool check_company = Check_Сompany(this.Company, this.CompanyBorder, company);
+            bool check_login = CheckLogin(this.Login, this.LoginBorder, login);
+            bool check_password = CheckPassword(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, password_1, password_2);
+            bool check_name = CheckName(this.Name, this.NameBorder, name);
+            bool check_surname = CheckSurname(this.Surname, this.SurnameBorder, surname);
+            bool check_company = CheckСompany(this.Company, this.CompanyBorder, company);
             if (check_login & check_password & check_name & check_surname & check_company)
             {
                 DataWorker.CreatePosition(login, password_1, name, surname, company);
@@ -234,13 +230,16 @@ namespace TestUsers
                 this.TextResult.Text = "Повторите попытку регистрации";
             }
         }
-        private void MouseClick(object sender, MouseButtonEventArgs e)
+
+        //Метод закрытия текущего окна и переход на окно авторизации.
+        private void Mouse_Click(object sender, MouseButtonEventArgs e)
         {
             AuthWindow authwindow = new AuthWindow();
             authwindow.Show();
             this.Close();
         }
 
+        //Метод нажатия кнопки на диалоговом окне.
         private void Dialog_Button(object sender, RoutedEventArgs e)
         {
             if (TextResult.Text == "Вы успешно зарегистрировались")
@@ -251,6 +250,7 @@ namespace TestUsers
             }
         }
 
+        //Метод отвечающий за отклик клавиши 'Enter'.
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -260,6 +260,7 @@ namespace TestUsers
             }
         }
 
+        //Метод отвечающий за отклик клавиши 'Esc'.
         private void Close_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)

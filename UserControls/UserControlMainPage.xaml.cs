@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для UserControlMainPage.xaml
     /// </summary>
     public partial class UserControlMainPage: UserControl
     {
@@ -26,16 +15,19 @@ namespace TestUsers
             InitializeComponent();
         }
 
+        //Метод перехода на страницу сайта.
         private void AboutCompanyBorder_MouseLeftClick(object sender, RoutedEventArgs e)
         {
             Process.Start("http://www.kg.ru/company/about/");
         }
 
+        //Метод перехода на страницу сайта.
         private void YourFeedbackBorder_MouseLeftClick(object sender, RoutedEventArgs e)
         {
             Process.Start("http://www.kg.ru/contacts/");
         }
 
+        //Метод перехода на страницу сайта
         private void AboutTestBorder_MouseLeftClick(object sender, MouseButtonEventArgs e)
         {
             UserControl usc;

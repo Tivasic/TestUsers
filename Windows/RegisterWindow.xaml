@@ -20,7 +20,7 @@
             </Border.Effect>
 
             <StackPanel Orientation="Vertical" Height="325">
-                <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Right" Margin="0 0 0 -35" Height="20" Width="18" MouseLeftButtonUp="MouseClick" Cursor="Hand" ></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Right" Margin="0 0 0 -35" Height="20" Width="18" MouseLeftButtonUp="Mouse_Click" Cursor="Hand" ></materialDesign:PackIcon>
                 <TextBlock Text="Регистрация" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" ></TextBlock>
                 <TextBlock Text="Заполните все поля!" HorizontalAlignment="Left" FontSize="14" Margin="5 5" FontFamily="Poppins"></TextBlock>
 

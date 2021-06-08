@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TestUsers
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -32,6 +19,7 @@ namespace TestUsers
             GridMain.Children.Add(usc);
         }
 
+        //Метод отображающий имя и фамилия пользователя в шапке программы.
         public void ChangeUserName()
         {
             if (DataUser == null)
@@ -44,6 +32,7 @@ namespace TestUsers
             }
         }
 
+        //Метод реализующий функционал меню.
         public void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -83,6 +72,7 @@ namespace TestUsers
             }
         }
 
+        //Метод отвечающий за выход из учетной записи.
         private void Button_Click_Account_Exit(object sender, RoutedEventArgs e)
         {
             AuthWindow authWindow = new AuthWindow();
@@ -90,6 +80,7 @@ namespace TestUsers
             Close();
         }
 
+        //Метод отвечающий за выход из программы.
         private void Button_Click_Programm_Exit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

@@ -1,18 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 using TestUsers.models;
 
@@ -35,13 +24,10 @@ namespace TestUsers
         List<BaseModelQuestions> Questions;
         List<BaseModelAnswers> Answers;
 
-        string CurrentAnswer;
-        string Answer;
-        int StepValueProgressBar = 0;
-        int Result;
-        int i = 0;
+        string Answer, CurrentAnswer;
+        int StepValueProgressBar = 0, Result = 0, i = 0;
 
-        //Метод запуска таймера
+        //Метод логики работы таймера.
         private void Dispatcher_Timer()
         {
             AllTime = CurrentTime = GetRequiredTime();
@@ -60,21 +46,21 @@ namespace TestUsers
         }
 
         // Метод получения необходимого времени для прохождения теста.
-        // На один вопрос выделяется по 2 минуты.
         private TimeSpan GetRequiredTime()
         {
             AllTime = TimeSpan.FromMinutes(2 * Questions.Count);
             return AllTime;
         }
 
-        // Метод после которого форма станет доступа
+        // Метод отвечающий за предупреждение перед тестом.
         private void StartTesting()
         {
             this.TextResult.Text = "После нажатия кнопки начала теста запуcтится таймер. Удачи!";
             this.DialogResult.IsOpen = true;
         }
 
-        //Метод отображения вопроса
+        //Метод отображения вопросов и определения на какой процент
+        //заполнится CircularProgressBar.
         private void ShowQuestion()
         {
             int count = Questions.Count;
@@ -83,7 +69,7 @@ namespace TestUsers
             ShowAnswers();
         }
 
-        // Метод отображения ответов 
+        //Метод отображения вариантов ответа.
         private void ShowAnswers()
         {
             this.Answer_1.Content = Answers[i].Answer_1.Trim();
@@ -92,7 +78,7 @@ namespace TestUsers
             this.Answer_4.Content = Answers[i].Answer_4.Trim();
         }
 
-        //Кнопка отображения следующего вопроса
+        //Метод кнопки отвечающий за отображение следующего вопроса.
         private void NextQuestionButtonButton_Click(object sender, RoutedEventArgs e)
         {
             circularProgressBar.Value += StepValueProgressBar;
@@ -119,7 +105,7 @@ namespace TestUsers
             }
         }
 
-        // Кнопка для запуска теста
+        //Метод кнопки для запуска теста.
         public void StartTestingButton_Click(object sender, RoutedEventArgs e)
         {
             TestLabel.Content = NameTest;
@@ -130,8 +116,8 @@ namespace TestUsers
             ShowQuestion();
         }
 
-        // Метод выбора одного из вариантов ответа
-        private void Check_Answers(object sender, RoutedEventArgs e)
+        //Метод логики работы выбора ответа.
+        private void CheckAnswers(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
             NextQuestionButton.IsEnabled = radioButton.IsEnabled;

@@ -33,10 +33,10 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel x:Name="stackPanel" Grid.Column="0" Margin="25 0 0 0">
-                    <RadioButton x:Name="Answer_1" GroupName="Answers" Margin="0,50,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                    <RadioButton x:Name="Answer_2" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                    <RadioButton x:Name="Answer_3" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
-                    <RadioButton x:Name="Answer_4" GroupName="Answers" Margin="0,22,0,0" Checked="Check_Answers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_1" GroupName="Answers" Margin="0,50,0,0" Checked="CheckAnswers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_2" GroupName="Answers" Margin="0,22,0,0" Checked="CheckAnswers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_3" GroupName="Answers" Margin="0,22,0,0" Checked="CheckAnswers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
+                    <RadioButton x:Name="Answer_4" GroupName="Answers" Margin="0,22,0,0" Checked="CheckAnswers" BorderBrush="{x:Null}" Foreground="#DD000000"/>
                 </StackPanel>
                 <local:circularProgressBar x:Name="circularProgressBar" Grid.Column="1" Value="0" ArcThickness="15" 
                                         FontSize="18" FontFamily="Poppins" Foreground="#4E4B66" Width="128" Height="128" Margin="201,30,80,31" />

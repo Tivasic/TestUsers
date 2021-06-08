@@ -11,6 +11,7 @@ namespace TestUsers.models
 {
     public static class DataWorker
     {
+        //Метод создания нового пользователя в БД.
         public static void CreatePosition(string login, string password, string name, string surname, string company)
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -28,6 +29,8 @@ namespace TestUsers.models
                 return;
             }
         }
+
+        //Метод проверки уникальности логина.
         public static Boolean CheckUniqueLogin(string login)
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -41,7 +44,8 @@ namespace TestUsers.models
             }
         }
 
-        public static User Auth_User(string login, string password)
+        //Метод авторизации пользователя через БД.
+        public static User AuthUser(string login, string password)
         {
             User DataUser = null;
             using (ApplicationContext db = new ApplicationContext())
@@ -51,6 +55,8 @@ namespace TestUsers.models
                 return DataUser;
             }
         }
+
+        //Метод редактирования личный данных пользователя в БД.
         public static User EditUser(User DataUser, string NewName, string NewSurname, string NewCompany)
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -63,7 +69,9 @@ namespace TestUsers.models
             }
             return DataUser;
         }
-        public static User Change_Password(User DataUser, string newPassword)
+
+        //Метод смены пароля пользователя в БД.
+        public static User ChangePassword(User DataUser, string newPassword)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -73,6 +81,8 @@ namespace TestUsers.models
             }
             return DataUser;
         }
+
+        //Метод получения всех вопросов из БД в зависимости от выбранного теста.
         public static List<BaseModelQuestions> GetAllQuestions(string NameTest)
         {
             using (ApplicationContext db = new ApplicationContext())
@@ -91,6 +101,8 @@ namespace TestUsers.models
                 }
             }
         }
+
+        //Метод получения всех ответов из БД в зависимости от выбранного теста.
         public static List<BaseModelAnswers> GetAllAnswers(string NameTest)
         {
             using (ApplicationContext db = new ApplicationContext())

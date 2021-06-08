@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для UserControlHome.xaml
+    /// Логика взаимодействия для UserControlTestSelection.xaml
     /// </summary>
     public partial class UserControlTestSelection : UserControl
     {
@@ -24,6 +14,7 @@ namespace TestUsers
             InitializeComponent();
         }
 
+        //Метод перехода в первый тест.
         private void BorderTestFirst_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UserControlTest usc = new UserControlTest
@@ -32,6 +23,8 @@ namespace TestUsers
             };
             GridMain.Children.Add(usc);
         }
+
+        //Метод перехода во второй тест.
         private void BorderTestSecond_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UserControlTest usc = new UserControlTest
@@ -41,21 +34,25 @@ namespace TestUsers
             GridMain.Children.Add(usc); 
         }
 
+        //Метод перехода в третий тест.
         private void BorderTestThird_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
+        //Метод перехода в четвертый тест.
         private void BorderTestFourth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
+        //Метод перехода в пятый тест.
         private void BorderTestFifth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
+        //Метод перехода в шестой тест.
         private void BorderTestSixth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");

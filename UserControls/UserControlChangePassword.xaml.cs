@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestUsers.models;
 
 namespace TestUsers
@@ -27,12 +16,14 @@ namespace TestUsers
             InitializeComponent();
         }
 
-        public void Clear_CurrentPasswordBorder()
+        //Метод очистки поля пароля.
+        public void ClearCurrentPasswordBorder()
         {
             CurrentPassword.ToolTip = null;
            CurrentPasswordBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
+        //Метод отвечающий за кнопку подтверждения смены данных.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
@@ -46,8 +37,8 @@ namespace TestUsers
 
             if (DataUser.Password.Trim() == Current_Password)
             {
-                Clear_CurrentPasswordBorder();
-                check_password = registerWindow.Check_Password(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, NewPassword_1, NewPassword_2);
+                ClearCurrentPasswordBorder();
+                check_password = registerWindow.CheckPassword(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, NewPassword_1, NewPassword_2);
             }
             else
             {
@@ -58,7 +49,7 @@ namespace TestUsers
 
             if (check_password)
             {
-                DataUser = DataWorker.Change_Password(DataUser, NewPassword_1);
+                DataUser = DataWorker.ChangePassword(DataUser, NewPassword_1);
                 MainWindow mainWindow = new MainWindow
                 {
                    DataUser = DataUser

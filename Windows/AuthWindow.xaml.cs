@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TestUsers.models;
 
 namespace TestUsers
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AuthWindow.xaml
     /// </summary>
     public partial class AuthWindow : Window
     {
@@ -27,6 +16,7 @@ namespace TestUsers
             InitializeComponent();
         }
 
+        //Метод реализующий авторизацию пользователя.
         public void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
@@ -59,7 +49,7 @@ namespace TestUsers
             {
                 if (password.Length >= 5)
                 {
-                    DataUser = DataWorker.Auth_User(login, password);
+                    DataUser = DataWorker.AuthUser(login, password);
 
                     if (DataUser != null)
                     {
@@ -71,12 +61,15 @@ namespace TestUsers
             else this.TextResult.Text = "Некорректные данные!";
         }
 
+        //Метод перехода на окно регистрации.
         private void Hyperlink_Window_Register_Click(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             this.Close();
         }
+
+        //Метод кнопки на диалоговом окне.
         private void Dialog_Button(object sender, RoutedEventArgs e)
         {
             if (TextResult.Text == "Вы успешно авторизовались!")
@@ -91,7 +84,8 @@ namespace TestUsers
             }
         }
 
-       private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        //Метод отвечающий за отклик клавиши 'Enter'.
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
