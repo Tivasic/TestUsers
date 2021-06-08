@@ -20,9 +20,18 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlResult : UserControl
     {
+        public TimeSpan TimeResult { get; set; }
+        public int TestResult { get; set; }
+
         public UserControlResult()
         {
             InitializeComponent();
+        }
+
+        public void RecordResult()
+        {
+            LabelResult.Content = TestResult + "%";
+            LabelTimeResult.Content = TimeResult.ToString("mm\\:ss");
         }
 
         private void OpenMainWindowButton_Click(object sender, RoutedEventArgs e)

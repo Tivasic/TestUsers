@@ -23,7 +23,7 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"  Content="Ваш результат: " HorizontalAlignment="Left" FontSize="24"  Margin="0 51 0 10" FontFamily="Poppins" Foreground="Black" Width="177"/>
-                <Label Grid.Column="1" x:Name="PercentResult" Content="0%" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
+                <Label Grid.Column="1" x:Name="LabelResult" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
             </Grid>
             <Grid Margin="25,0,10,0">
                 <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"  Content="Ваше время: " HorizontalAlignment="Left" FontSize="24"  Margin="0 51 0 10" FontFamily="Poppins" Foreground="Black" Width="177" Grid.ColumnSpan="2"/>
-                <Label Grid.Column="1" x:Name="TimeResult" Content="00:00" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
+                <Label Grid.Column="1" x:Name="LabelTimeResult" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
             </Grid>
             <Button x:Name="OpenMainWindowButton"
             UseLayoutRounding="True"

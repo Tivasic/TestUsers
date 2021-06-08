@@ -24,7 +24,7 @@ namespace TestUsers
             InitializeComponent();
         }
 
-        private void Border_SmartTruck_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestFirst_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UserControlTest usc = new UserControlTest
             {
@@ -32,7 +32,7 @@ namespace TestUsers
             };
             GridMain.Children.Add(usc);
         }
-        private void Border_SmartTruck_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestSecond_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UserControlTest usc = new UserControlTest
             {
@@ -41,22 +41,22 @@ namespace TestUsers
             GridMain.Children.Add(usc); 
         }
 
-        private void Border_Textile_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestThird_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
-        private void Border_C_plus_plus_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestFourth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
-        private void Border_LGIP_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestFifth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }
 
-        private void Border_C_grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void BorderTestSixth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("Этот тест пока недоступен");
         }

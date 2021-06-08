@@ -30,7 +30,7 @@ namespace TestUsers
             StartTesting();
         }
         DispatcherTimer Timer;
-        TimeSpan CurrentTime;
+        TimeSpan AllTime, CurrentTime;
 
         List<BaseModelQuestions> Questions;
         List<BaseModelAnswers> Answers;
@@ -38,23 +38,13 @@ namespace TestUsers
         string CurrentAnswer;
         string Answer;
         int StepValueProgressBar = 0;
-        int result;
+        int Result;
         int i = 0;
-
-        // EventWaitHandle wh = new EventWaitHandle(true, EventResetMode.AutoReset);
-        // private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        // {
-        //     TimeSpan CurrentTime;
-        //     StartTesting();
-        //     wh.WaitOne();
-        //     CurrentTime = GetRequiredTime(out CurrentTime);
-        //     Dispatcher_Timer(CurrentTime);
-        // }
 
         //Метод запуска таймера
         private void Dispatcher_Timer()
         {
-            CurrentTime = GetRequiredTime();
+            AllTime = CurrentTime = GetRequiredTime();
             Timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 TimeLabel.Content = CurrentTime.ToString("mm\\:ss");
@@ -73,8 +63,8 @@ namespace TestUsers
         // На один вопрос выделяется по 2 минуты.
         private TimeSpan GetRequiredTime()
         {
-            CurrentTime = TimeSpan.FromMinutes(2 * Questions.Count);
-            return CurrentTime;
+            AllTime = TimeSpan.FromMinutes(2 * Questions.Count);
+            return AllTime;
         }
 
         // Метод после которого форма станет доступа
@@ -107,16 +97,20 @@ namespace TestUsers
         {
             circularProgressBar.Value += StepValueProgressBar;
 
-            if (Answer == Questions[i].True_answer)
+            if (Answer == Questions[i].True_answer.Trim())
             {
-                result += 1;
+                Result += StepValueProgressBar;
             }
             i++;
             if(i == Questions.Count)
             {
                 Timer.Stop();
-                UserControl usc;
-                usc = new UserControlResult();
+                UserControlResult usc = new UserControlResult
+                {
+                    TestResult = Result,
+                    TimeResult = AllTime - CurrentTime
+                };
+                usc.RecordResult();
                 GridMain.Children.Add(usc);
             }
             else
@@ -134,13 +128,6 @@ namespace TestUsers
             Answers = DataWorker.GetAllAnswers(NameTest);
             Dispatcher_Timer();
             ShowQuestion();
-        }
-
-        //Метод отображения результатов теста
-        private void ShowResults()
-        {
-            string text = string.Format("Правильных ответов: {0} из {1} вопросов", result, Questions.Count);
-            MessageBox.Show(text);
         }
 
         // Метод выбора одного из вариантов ответа
