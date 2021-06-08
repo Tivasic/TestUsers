@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,23 @@ namespace TestUsers
         public UserControlManual()
         {
             InitializeComponent();
+            ReadManual();
         }
+
+        private void ReadManual()
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader("Manual.txt"))
+                {
+                    TextManual.Text = sr.ReadToEnd();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
     }
 }

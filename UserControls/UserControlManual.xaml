@@ -11,9 +11,9 @@
         <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 25 0 0">
             <StackPanel Orientation="Vertical">
                 <Label Content="Инструкция" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
-                <Label HorizontalAlignment="Center" FontSize="18"  Margin="0,15,10,10" FontFamily="Poppins" Width="790" Height="500">
+                <Label HorizontalAlignment="Center" Margin="0,15,10,10" Width="790" Height="500">
                     <Label.Content>
-                        <AccessText  TextWrapping="Wrap" Text="Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции Блаблабла текст инструкции "/>
+                        <AccessText x:Name="TextManual"  FontSize="18" FontFamily="Poppins" TextWrapping="Wrap"/>
                     </Label.Content>
                 </Label>
             </StackPanel>
