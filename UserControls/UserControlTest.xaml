@@ -8,7 +8,7 @@
         mc:Ignorable="d" Height="648" Width="838"
         Background="White" >
 
-    <Grid x:Name="GridMain" Visibility="Visible" >
+    <Grid x:Name="GridMain" Visibility="Hidden" >
         <StackPanel >
             <Label x:Name="TestLabel" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="35,25,0,10" FontFamily="Poppins" Width="818" Foreground="#FF14142B"/>
             <Grid Margin="10,0">
