@@ -8,31 +8,42 @@ namespace TestUsers
     /// <summary>
     /// Логика взаимодействия для UserControlMainPage.xaml
     /// </summary>
-    public partial class UserControlMainPage: UserControl
+    public partial class UserControlMainPage : UserControl
     {
         public UserControlMainPage()
         {
             InitializeComponent();
         }
 
-        //Метод перехода на страницу сайта.
-        private void AboutCompanyBorder_MouseLeftClick(object sender, RoutedEventArgs e)
+        // Метод перехода на страницу сайта.
+        private void NavigateToUrl(string url)
         {
-            Process.Start("http://www.kg.ru/company/about/");
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = url,
+                UseShellExecute = true
+            });
         }
 
-        //Метод перехода на страницу сайта.
-        private void YourFeedbackBorder_MouseLeftClick(object sender, RoutedEventArgs e)
+        // Обработчик клика на "О МТУСИ".
+        private void AboutUniversityBorderMouseLeftClick(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://www.kg.ru/contacts/");
+            NavigateToUrl("https://mtuci.ru/media-room/");
         }
 
-        //Метод перехода на страницу сайта
-        private void AboutTestBorder_MouseLeftClick(object sender, MouseButtonEventArgs e)
+        // Обработчик клика на "Обратная связь".
+        private void YourFeedbackBorderMouseLeftClick(object sender, RoutedEventArgs e)
         {
-            UserControl usc;
-            usc = new UserControlManual();
-            GridMain.Children.Add(usc);
+            NavigateToUrl("http://www.kg.ru/contacts/");
+        }
+
+        // Обработчик клика на "О тестировании".
+        private void AboutTestBorderMouseLeftClick(object sender, MouseButtonEventArgs e)
+        {
+            var manualControl = new UserControlManual();
+            GridMain.Children.Clear(); // Очищаем, если нужно заменить содержимое.
+            GridMain.Children.Add(manualControl);
         }
     }
 }
+

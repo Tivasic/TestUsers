@@ -18,18 +18,17 @@ namespace TestUsers
         }
 
         //Метод записи результатов тестов в поля на форме.
-        public void RecordResult()
+        public void ShowResult()
         {
             LabelResult.Content = TestResult + "%";
             LabelTimeResult.Content = TimeResult.ToString("mm\\:ss");
         }
 
         //Метод кнопки открытия главного меню.
-        private void OpenMainWindowButton_Click(object sender, RoutedEventArgs e)
+        private void OpenMainWindowButtonClick(object sender, RoutedEventArgs e)
         {
-            UserControl usc;
-            usc = new UserControlMainPage();
-            GridMain.Children.Add(usc);
+            var mainPageControl = new UserControlMainPage();
+            GridMain.Children.Add(mainPageControl);
         }
     }
 }

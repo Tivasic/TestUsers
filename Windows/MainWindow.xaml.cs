@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using TestUsers.UserControls;
+
 
 namespace TestUsers
 {
@@ -8,80 +10,101 @@ namespace TestUsers
     /// </summary>
     public partial class MainWindow : Window
     {
-        public User DataUser { get; set; }
- 
+        public Users DataUser { get; set; }
+
         public MainWindow()
         {
-
             InitializeComponent();
-            UserControl usc;
-            usc = new UserControlMainPage();
-            GridMain.Children.Add(usc);
+            LoadInitialUserControl();
         }
 
-        //Метод отображающий имя и фамилия пользователя в шапке программы.
+        // Метод для загрузки начального UserControl.
+        private void LoadInitialUserControl()
+        {
+            var initialControl = new UserControlMainPage();
+            GridMain.Children.Add(initialControl);
+        }
+
+        public void BlockUserInteraction(bool block)
+        {
+            ListViewMenu.Visibility = block ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        // Метод отображающий имя и фамилию пользователя в шапке программы.
         public void ChangeUserName()
         {
-            if (DataUser == null)
-            {
-                this.UserName.Text = "User";
-            }
-            else
-            {
-                this.UserName.Text = DataUser.Name.Trim() + " " + DataUser.Surname.Trim();
-            }
+            UserName.Text = DataUser.Name.Trim() + " " + DataUser.Surname.Trim();
         }
 
-        //Метод реализующий функционал меню.
+        // Метод реализующий функционал меню.
         public void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            UserControl usc;
-            ChangeUserName();
-            GridMain.Children.Clear();
-            string CurrentItem;
-            CurrentItem = (((ListViewItem)((ListView)sender).SelectedItem).Name);
-
-            if (CurrentItem == "TestSelection")
+            if (sender is ListView listView && listView.SelectedItem is ListViewItem selectedItem)
             {
-                usc = new UserControlTestSelection();
-                GridMain.Children.Add(usc);
+                var selectedItemName = selectedItem.Name;
+                UserControl newControl = null;
 
-            }
-
-            if (CurrentItem == "MainPage")
-            {
-                usc = new UserControlMainPage();
-                GridMain.Children.Add(usc);
-
-            }
-            if (CurrentItem == "Manual")
-            {
-                usc = new UserControlManual();
-                GridMain.Children.Add(usc);
-            }
-
-            if (CurrentItem == "PersonalAccount")
-            {
-                UserControlPersonalAccount usc1 = new UserControlPersonalAccount
+                switch (selectedItemName)
                 {
-                    DataUser = DataUser
-                };
-                usc1.FillingFields();
-                GridMain.Children.Add(usc1);
+                    case "TestSelection":
+                        newControl = CreateUserControlTestSelection();
+                        break;
+                    case "MainPage":
+                        newControl = new UserControlMainPage();
+                        break;
+                    case "Manual":
+                        newControl = new UserControlManual();
+                        break;
+                    case "PersonalAccount":
+                        newControl = CreatePersonalAccountControl();
+                        break;
+                    case "TestResults":
+                        newControl = new UserControlTestResults();
+                        break;
+                    default:
+                        break;
+                }
+
+                if (newControl != null)
+                {
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(newControl);
+                }
             }
         }
 
-        //Метод отвечающий за выход из учетной записи.
-        private void Button_Click_Account_Exit(object sender, RoutedEventArgs e)
+        // Создание и заполнение UserControlPersonalAccount.
+        private UserControlTestSelection CreateUserControlTestSelection()
         {
-            AuthWindow authWindow = new AuthWindow();
+            var testSelection = new UserControlTestSelection
+            {
+                DataUser = DataUser
+            };
+            return testSelection;
+
+        }
+
+        // Создание и заполнение UserControlPersonalAccount.
+        private UserControlPersonalAccount CreatePersonalAccountControl()
+        {
+            var personalAccountControl = new UserControlPersonalAccount
+            {
+                DataUser = DataUser
+            };
+            personalAccountControl.FillingFields();
+            return personalAccountControl;
+        }
+
+        // Метод отвечающий за выход из учетной записи.
+        private void ButtonClickAccountExit(object sender, RoutedEventArgs e)
+        {
+            var authWindow = new AuthWindow();
             authWindow.Show();
             Close();
         }
 
-        //Метод отвечающий за выход из программы.
-        private void Button_Click_Programm_Exit(object sender, RoutedEventArgs e)
+        // Метод отвечающий за выход из программы.
+        private void ButtonClickProgrammExit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

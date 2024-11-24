@@ -10,27 +10,35 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlManual : UserControl
     {
+        private const string ManualFilePath = "Manual.txt"; // Пусть к файлу инструкции.
+
         public UserControlManual()
         {
             InitializeComponent();
             ReadManual();
         }
 
-        //Метод чтения инструкции из файла.
+        // Метод чтения инструкции из файла.
         private void ReadManual()
         {
+            if (!File.Exists(ManualFilePath))
+            {
+                MessageBox.Show("Файл инструкции не найден.");
+                return;
+            }
+
             try
             {
-                using (StreamReader sr = new StreamReader("Manual.txt"))
-                {
-                    TextManual.Text = sr.ReadToEnd();
-                }
+                TextManual.Text = File.ReadAllText(ManualFilePath);
             }
-            catch (Exception e)
+            catch (IOException ioEx)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"Ошибка чтения файла: {ioEx.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Произошла ошибка: {ex.Message}");
             }
         }
-
     }
 }

@@ -9,29 +9,25 @@
         Background="{DynamicResource MaterialDesignPaper}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStartupLocation="CenterScreen"
-        Title="Регистрация" MinHeight="600" MinWidth="900" KeyDown="Close_KeyDown">
+        Title="Регистрация" MinHeight="600" MinWidth="900" KeyDown="CloseKeyDown">
     <Grid UseLayoutRounding="True" Background="White">
-        <StackPanel>
-            <Image HorizontalAlignment="Right" MinWidth ="180" Height="200"  Margin="0 20 10 0" Source="/TestUsers;component/images/logo_company/logo_green.png" Width="180"></Image>
-        </StackPanel>
         <Border MinWidth="400" MaxWidth="500" Margin="15" Background="White" VerticalAlignment="Center" Padding="40" CornerRadius="20">
             <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="#279A44" ShadowDepth="0" ></DropShadowEffect>
+                <DropShadowEffect BlurRadius="30" Color="#372579" ShadowDepth="0" ></DropShadowEffect>
             </Border.Effect>
 
             <StackPanel Orientation="Vertical" Height="325">
-                <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Right" Margin="0 0 0 -35" Height="20" Width="18" MouseLeftButtonUp="Mouse_Click" Cursor="Hand" ></materialDesign:PackIcon>
-                <TextBlock Text="Регистрация" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 0 0 10" FontFamily="Poppins" ></TextBlock>
-                <TextBlock Text="Заполните все поля!" HorizontalAlignment="Left" FontSize="14" Margin="5 5" FontFamily="Poppins"></TextBlock>
+                <materialDesign:PackIcon Kind="Close" HorizontalAlignment="Right" Margin="0 0 0 -35" Height="20" Width="18" MouseLeftButtonUp="MouseClick" Cursor="Hand" ></materialDesign:PackIcon>
+                <TextBlock Text="Регистрация" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 0 0 20" FontFamily="Poppins" ></TextBlock>
 
                 <StackPanel Margin="5 0 10 15">
                     <Border x:Name="LoginBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True">
+                            VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,0,5,0">
 
                         <TextBox x:Name="Login" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
-                                 materialDesign:HintAssist.Hint="Login"
-                                 materialDesign:HintAssist.HelperText="Логин для входа"
-                                 KeyDown="TextBox_KeyDown"
+                                 materialDesign:HintAssist.Hint="Логин"
+
+                                 KeyDown="TextBoxKeyDown"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" Height="24" Foreground="#FF373844" FontFamily="Poppins">
                             <TextBox.InputBindings>
                                 <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
@@ -54,10 +50,10 @@
                         <Border  x:Name="PasswordBorder_1" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,0,5,0">
                             <PasswordBox HorizontalAlignment="Left" x:Name="Password_1" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
-                                 materialDesign:HintAssist.Hint="Password"
+                                 materialDesign:HintAssist.Hint="Пароль"
                                  materialDesign:HintAssist.HelperText="Минимум 5 символов"
                                  Style="{StaticResource MaterialDesignPasswordBox}" 
-                                 VerticalAlignment="Bottom" FontFamily="Poppins" Width="177" KeyDown="TextBox_KeyDown">
+                                 VerticalAlignment="Bottom" FontFamily="Poppins" Width="177" KeyDown="TextBoxKeyDown">
                                 <PasswordBox.InputBindings>
                                     <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
                                 </PasswordBox.InputBindings>
@@ -67,10 +63,10 @@
                         <Border x:Name="PasswordBorder_2" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Grid.Column="1" Margin="0,0,-1,0">
                             <PasswordBox  HorizontalAlignment="Left" x:Name="Password_2" Margin="5 5 0 0" BorderThickness="0" Background="Transparent"
-                                 materialDesign:HintAssist.Hint="Again Password"
-                                 materialDesign:HintAssist.HelperText="Повторите пароль"
+                                 materialDesign:HintAssist.Hint="Повторите пароль"
+
                                  Style="{StaticResource MaterialDesignPasswordBox}" 
-                                 VerticalAlignment="Bottom" FontFamily="Poppins" Width="182" KeyDown="TextBox_KeyDown">
+                                 VerticalAlignment="Bottom" FontFamily="Poppins" Width="177" KeyDown="TextBoxKeyDown">
                                 <PasswordBox.InputBindings>
                                     <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
                                 </PasswordBox.InputBindings>
@@ -91,9 +87,8 @@
                         <Border  x:Name="NameBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="0,0,5,0">
                             <TextBox HorizontalAlignment="Left" x:Name="Name" Margin="10 5 0 0" BorderThickness="0" Background="Transparent"
-                         materialDesign:HintAssist.Hint="Name"
-                         materialDesign:HintAssist.HelperText="Ваше Имя"
-                         Style="{DynamicResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="179" KeyDown="TextBox_KeyDown">
+                         materialDesign:HintAssist.Hint="Имя"
+                         Style="{DynamicResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="179" KeyDown="TextBoxKeyDown">
                                 <TextBox.InputBindings>
                                     <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
                                 </TextBox.InputBindings>
@@ -101,11 +96,10 @@
                         </Border>
 
                         <Border x:Name="SurnameBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
-                            VerticalAlignment="Center" UseLayoutRounding="True" Grid.Column="1" Margin="0,0,-1,0">
+                            VerticalAlignment="Center" UseLayoutRounding="True" Grid.Column="1" Margin="0,0,1,0">
                             <TextBox HorizontalAlignment="Left" x:Name="Surname" Margin="5 5 0 0" BorderThickness="0" Background="Transparent"
-                         materialDesign:HintAssist.Hint="Surname" 
-                         materialDesign:HintAssist.HelperText="Ваша фамилия"
-                         Style="{StaticResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="190" KeyDown="TextBox_KeyDown">
+                         materialDesign:HintAssist.Hint="Фамилия" 
+                         Style="{StaticResource MaterialDesignTextBoxBase}" FontFamily="Poppins" Width="191" KeyDown="TextBoxKeyDown">
                                 <TextBox.InputBindings>
                                     <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
                                 </TextBox.InputBindings>
@@ -115,13 +109,12 @@
                 </StackPanel>
 
                 <StackPanel  Margin="5 0 10 10">
-                    <Border x:Name="CompanyBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
+                    <Border x:Name="GroupBorder" CornerRadius="7" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Grid.Column="1" Margin="0,0,-1,0">
-                        <TextBox x:Name="Company" Margin="10,5,9,0" BorderThickness="0" Background="Transparent"
-                                 materialDesign:HintAssist.Hint="Сompany"
-                                 materialDesign:HintAssist.HelperText="Ваша компания"
+                        <TextBox x:Name="Group" Margin="10,5,9,0" BorderThickness="0" Background="Transparent"
+                                 materialDesign:HintAssist.Hint="Номер группы"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
-                                 VerticalAlignment="Bottom" FontFamily="Poppins" KeyDown="TextBox_KeyDown">
+                                 VerticalAlignment="Bottom" FontFamily="Poppins" KeyDown="TextBoxKeyDown">
                             <TextBox.InputBindings>
                                 <KeyBinding Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}" />
                             </TextBox.InputBindings>
@@ -129,36 +122,20 @@
                     </Border>
                 </StackPanel>
 
-                <StackPanel Margin="10">
-                    <Button 
+                <StackPanel Margin="40">
+                    <Button
                         UseLayoutRounding="True"
-                        
                         Style="{DynamicResource RoundButtonTemplate}"
-                            Margin="0 13" 
-                            Width="200" Height="45"
-                            Click="RegisterButton_Click" Content="Зарегистрироваться" Cursor="Hand"
-
-                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}">
+                        Margin="0 13"
+                        Width="200" Height="45"
+                        Click="RegisterButtonClick" Content="Зарегистрироваться" Cursor="Hand">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="1"></DropShadowEffect>
                         </Button.Effect>
                     </Button>
                 </StackPanel>
-
             </StackPanel>
         </Border>
-        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="15" Orientation="Vertical">
-                    <TextBlock x:Name="TextResult"></TextBlock>
-                    <Button 
-                        Margin="0 10 0 0"
-                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
-                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо"
-                        Click="Dialog_Button">
-                    </Button>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
+        <materialDesign:Snackbar x:Name="Snackbar" MessageQueue="{materialDesign:MessageQueue}"/>
     </Grid>
 </Window>

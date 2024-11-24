@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,258 +19,235 @@ namespace TestUsers
             InitializeComponent();
         }
 
-        //Метод очистки поля с первым паролем.
-        public void ClearPasswordBorder1()
+        // Метод очистки поля с первым паролем.
+        private void ClearPasswordBorder(PasswordBox passwordBox, Border border)
         {
-            Password_1.ToolTip = null;
-            PasswordBorder_1.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            passwordBox.ToolTip = null;
+            border.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
         }
 
-        //Метод очистки поля со вторым паролем.
-        public void ClearPasswordBorder2()
+        // Метод проверки вводимого логина.
+        private bool CheckLogin(TextBox loginTextBox, Border loginBorder, string login)
         {
-            Password_2.ToolTip = null;
-            PasswordBorder_2.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-        }
-
-        //Метод проверка вводимого логина.
-        public Boolean CheckLogin(TextBox Login, Border LoginBorder, string login)
-        { 
             if (login.Length < 5)
             {
-                Login.ToolTip = "Это поле введено некорректно!";
-                LoginBorder.BorderBrush = Brushes.Red;
+                loginTextBox.ToolTip = "Это поле введено некорректно!";
+                loginBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-            bool UniqueLogin = DataWorker.CheckUniqueLogin(login);
-            if (UniqueLogin)
+
+            bool uniqueLogin = DataWorker.CheckUniqueLogin(login);
+            if (uniqueLogin)
             {
-                Login.ToolTip = "Этот логин зарегистрирован";
-                LoginBorder.BorderBrush = Brushes.Red;
+                loginTextBox.ToolTip = "Этот логин зарегистрирован";
+                loginBorder.BorderBrush = Brushes.Red;
                 return false;
             }
-            Login.ToolTip = null;
-            LoginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+
+            loginTextBox.ToolTip = null;
+            loginBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
             return true;
         }
 
-        //Метод проверки вводимых паролей.
-        public Boolean CheckPassword(PasswordBox Password_1, PasswordBox Password_2, Border PasswordBorder_1, Border PasswordBorder_2, string password_1, string password_2)
+        // Метод проверки вводимых паролей.
+        public bool CheckPassword(PasswordBox password1Box, PasswordBox password2Box, Border password1Border, Border password2Border, string password1, string password2)
         {
-            if (password_1.Length >= 5)
+            if (password1.Length < 5)
             {
-                bool en = true;
-                bool number = false;
-
-                for (int i = 0; i < password_1.Length; i++)
-                {
-                    if (password_1[i] >= 'А' & password_1[i] <= 'Я') en = false;
-                    if (password_1[i] >= '0' & password_1[i] <= '9') number = true;
-                }
-                if (!en)
-                {
-                    Password_1.ToolTip = "Доступна только английская раскладка";
-                    PasswordBorder_1.BorderBrush = Brushes.Red;
-                    return false;
-                }
-                ClearPasswordBorder1();
-                if (!number)
-                {
-                    Password_1.ToolTip = "Добавьте минимум одну цифру";
-                    PasswordBorder_1.BorderBrush = Brushes.Red;
-                    return false;
-                }
-                ClearPasswordBorder1();
-                if (password_1 != password_2)
-                {
-                    PasswordBorder_1.BorderBrush = Brushes.Red;
-                    PasswordBorder_2.BorderBrush = Brushes.Red;
-                    Password_1.ToolTip = "Пароли не совпадают";
-                    Password_2.ToolTip = "Пароли не совпадают";
-                    return false;
-                }
-                ClearPasswordBorder1();
-                ClearPasswordBorder2();
-                return true;
-            }
-            Password_1.ToolTip = "Пароль минимум 5 символов";
-            Password_2.ToolTip = "Пароль минимум 5 символов";
-            PasswordBorder_1.BorderBrush = Brushes.Red;
-            PasswordBorder_2.BorderBrush = Brushes.Red;
-            return false;
-        }
-
-        //Метод проверки вводимого имени.
-        public Boolean CheckName(TextBox Name, Border NameBorder, string name)
-        {
-            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
-            if (name.Length == 0)
-            {
-                Name.ToolTip = "Введите имя";
-                NameBorder.BorderBrush = Brushes.Red;
-                return false;
-            }
-            if (name.Length <= 10)
-            {
-                bool ru = true;
-
-                for (int i = 0; i < name.Length; i++)
-                {
-                    if (name[i] >= 'A' & name[i] <= 'Z') ru = false;
-
-                }
-
-                if (!ru)
-                {
-
-                    Name.ToolTip = "Доступна только русская раскладка";
-                    NameBorder.BorderBrush = Brushes.Red;
-                    return false;
-                }
-
-                Name.ToolTip = null;
-                NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                if (regex.IsMatch(Name.Text))
-                {
-                    Name.ToolTip = null;
-                    NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                    return true;
-                }
-
-                Name.ToolTip = "Запрещен ввод цифр и символов";
-                NameBorder.BorderBrush = Brushes.Red;
-                return false;
-            }
-            Name.ToolTip = "Сократите ваше имя!";
-            NameBorder.BorderBrush = Brushes.Red;
-            return false;
-            
-        }
-
-        //Метод проверки вводимой фамилии.
-        public Boolean CheckSurname(TextBox Surname, Border SurnameBorder, string surname)
-        {
-            System.Text.RegularExpressions.Regex regex;
-            regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
-            if (surname.Length == 0)
-            {
-                Surname.ToolTip = "Введите фамилию";
-                SurnameBorder.BorderBrush = Brushes.Red;
-                return false;
-            }
-            if (surname.Length <= 10)
-            {
-                bool ru = true;
-
-                for (int i = 0; i < surname.Length; i++)
-                {
-                    if (surname[i] >= 'A' & surname[i] <= 'Z') ru = false;
-
-                }
-
-                if (!ru)
-                {
-                    Surname.ToolTip = "Доступна русская раскладка";
-                    SurnameBorder.BorderBrush = Brushes.Red;
-                    return false;
-                }
-                Surname.ToolTip = null;
-                SurnameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                if (regex.IsMatch(Name.Text))
-                {
-                    Name.ToolTip = null;
-                    NameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
-                    return true;
-                }
-                Surname.ToolTip = "Запрещен ввод цифр и символов";
-                SurnameBorder.BorderBrush = Brushes.Red;
-                return false;
-            }
-            Surname.ToolTip = "Сократите вашу фамилию!";
-            SurnameBorder.BorderBrush = Brushes.Red;
-            return false;
-        }
-
-        //Метод проверки вводимой компании.
-        public Boolean CheckСompany(TextBox Company, Border CompanyBorder, string company)
-        {
-            if (company.Length < 5)
-            {
-                Company.ToolTip = "Это поле введено некорректно!";
-                CompanyBorder.BorderBrush = Brushes.Red;
+                ShowPasswordError(password1Box, password2Box, password1Border, password2Border, "Пароль минимум 5 символов");
                 return false;
             }
 
-            Company.ToolTip = null;
-            CompanyBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            bool hasEnglishLetters = true;
+            bool hasNumber = false;
+
+            foreach (char c in password1)
+            {
+                if (c >= 'А' && c <= 'Я') hasEnglishLetters = false;
+                if (char.IsDigit(c)) hasNumber = true;
+            }
+
+            if (!hasEnglishLetters)
+            {
+                ShowPasswordError(password1Box, password2Box, password1Border, password2Border, "Доступна только английская раскладка");
+                return false;
+            }
+
+            if (!hasNumber)
+            {
+                ShowPasswordError(password1Box, password2Box, password1Border, password2Border, "Добавьте минимум одну цифру");
+                return false;
+            }
+
+            if (password1 != password2)
+            {
+                ShowPasswordError(password1Box, password2Box, password1Border, password2Border, "Пароли не совпадают");
+                return false;
+            }
+
+            ClearPasswordBorder(password1Box, password1Border);
+            ClearPasswordBorder(password2Box, password2Border);
             return true;
         }
 
-        //Метод регистрации пользователя.
-        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        private void ShowPasswordError(PasswordBox password1Box, PasswordBox password2Box, Border password1Border, Border password2Border, string errorMessage)
+        {
+            password1Box.ToolTip = errorMessage;
+            password2Box.ToolTip = errorMessage;
+            password1Border.BorderBrush = Brushes.Red;
+            password2Border.BorderBrush = Brushes.Red;
+        }
+
+        // Метод проверки вводимого имени.
+        public bool CheckName(TextBox nameTextBox, Border nameBorder, string name)
+        {
+            var regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                nameTextBox.ToolTip = "Введите имя";
+                nameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (name.Length > 10)
+            {
+                nameTextBox.ToolTip = "Сократите ваше имя!";
+                nameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(name, "[A-Z]"))
+            {
+                nameTextBox.ToolTip = "Доступна только русская раскладка";
+                nameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (!regex.IsMatch(name))
+            {
+                nameTextBox.ToolTip = "Запрещен ввод цифр и символов";
+                nameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            nameTextBox.ToolTip = null;
+            nameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            return true;
+        }
+
+        // Метод проверки вводимой фамилии.
+        public bool CheckSurname(TextBox surnameTextBox, Border surnameBorder, string surname)
+        {
+            var regex = new System.Text.RegularExpressions.Regex("^([а-яА-ЯёЁ])*$");
+
+            if (string.IsNullOrWhiteSpace(surname))
+            {
+                surnameTextBox.ToolTip = "Введите фамилию";
+                surnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (surname.Length > 10)
+            {
+                surnameTextBox.ToolTip = "Сократите вашу фамилию!";
+                surnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(surname, "[A-Z]"))
+            {
+                surnameTextBox.ToolTip = "Доступна только русская раскладка";
+                surnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            if (!regex.IsMatch(surname))
+            {
+                surnameTextBox.ToolTip = "Запрещен ввод цифр и символов";
+                surnameBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            surnameTextBox.ToolTip = null;
+            surnameBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            return true;
+        }
+
+        // Метод проверки вводимой компании.
+        public bool CheckGroup(TextBox groupTextBox, Border groupBorder, string group)
+        {
+            if (group.Length < 5)
+            {
+                groupTextBox.ToolTip = "Это поле введено некорректно!";
+                groupBorder.BorderBrush = Brushes.Red;
+                return false;
+            }
+
+            groupTextBox.ToolTip = null;
+            groupBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            return true;
+        }
+
+        // Метод регистрации пользователя.
+        private void RegisterButtonClick(object sender, RoutedEventArgs e)
         {
             string login = Login.Text.Trim();
-            string password_1 = Password_1.Password.Trim();
-            string password_2 = Password_2.Password.Trim();
+            string password1 = Password_1.Password.Trim();
+            string password2 = Password_2.Password.Trim();
             string name = Name.Text.Trim();
             string surname = Surname.Text.Trim();
-            string company = Company.Text.Trim();
+            string group = Group.Text.Trim();
 
-            bool check_login = CheckLogin(this.Login, this.LoginBorder, login);
-            bool check_password = CheckPassword(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, password_1, password_2);
-            bool check_name = CheckName(this.Name, this.NameBorder, name);
-            bool check_surname = CheckSurname(this.Surname, this.SurnameBorder, surname);
-            bool check_company = CheckСompany(this.Company, this.CompanyBorder, company);
-            if (check_login & check_password & check_name & check_surname & check_company)
+            bool isLoginValid = CheckLogin(Login, LoginBorder, login);
+            bool isPasswordValid = CheckPassword(Password_1, Password_2, PasswordBorder_1, PasswordBorder_2, password1, password2);
+            bool isNameValid = CheckName(Name, NameBorder, name);
+            bool isSurnameValid = CheckSurname(Surname, SurnameBorder, surname);
+            bool isCompanyValid = CheckGroup(Group, GroupBorder, group);
+
+            if (isLoginValid && isPasswordValid && isNameValid && isSurnameValid && isCompanyValid)
             {
-                DataWorker.CreatePosition(login, password_1, name, surname, company);
-
-                this.TextResult.Text = "Вы успешно зарегистрировались";
+                DataWorker.CreateUser(login, password1, name, surname, group);
+                Snackbar.MessageQueue.Enqueue("Вы успешно зарегистрировались");
+                OpenAuthWindow();
             }
             else
             {
-                this.TextResult.Text = "Повторите попытку регистрации";
+                Snackbar.MessageQueue.Enqueue("Повторите попытку регистрации");
             }
         }
 
-        //Метод закрытия текущего окна и переход на окно авторизации.
-        private void Mouse_Click(object sender, MouseButtonEventArgs e)
+        // Метод закрытия текущего окна и переход на окно авторизации.
+        private void MouseClick(object sender, MouseButtonEventArgs e)
         {
-            AuthWindow authwindow = new AuthWindow();
-            authwindow.Show();
-            this.Close();
+            OpenAuthWindow();
         }
 
-        //Метод нажатия кнопки на диалоговом окне.
-        private void Dialog_Button(object sender, RoutedEventArgs e)
+
+        private void OpenAuthWindow()
         {
-            if (TextResult.Text == "Вы успешно зарегистрировались")
-            {
-                AuthWindow authwindow = new AuthWindow();
-                authwindow.Show();
-                this.Close();
-            }
+            var authWindow = new AuthWindow();
+            authWindow.Show();
+            Close();
         }
 
-        //Метод отвечающий за отклик клавиши 'Enter'.
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        // Метод отвечающий за отклик клавиши 'Enter'.
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                RegisterButton_Click(sender, e);
-                DialogResult.IsOpen = true;
+                RegisterButtonClick(sender, e);
             }
         }
 
-        //Метод отвечающий за отклик клавиши 'Esc'.
-        private void Close_KeyDown(object sender, KeyEventArgs e)
+        // Метод отвечающий за отклик клавиши 'Esc'.
+        private void CloseKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             {
-                AuthWindow authwindow = new AuthWindow();
-                authwindow.Show();
-                this.Close();
+                OpenAuthWindow();
             }
         }
     }
 }
+

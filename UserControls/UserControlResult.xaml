@@ -12,7 +12,7 @@
             <Label Content="Результаты теста" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="25,25,0,10" FontFamily="Poppins" Foreground="#FF14142B"></Label>
             <Label HorizontalAlignment="Center" FontSize="18" Margin="25,35,10,0" Width="803" FontFamily="Poppins" Foreground="#FF4E4B66">
                 <Label.Content>
-                    <AccessText TextWrapping="Wrap" Text="Вы завершили тестирование. Спасибо за ваше участие. Данные о результатах будут переданы в вашу Организацию позднее." />
+                    <AccessText TextWrapping="Wrap" Text="Вы завершили тестирование. Данные о результатах будут переданы вашему преподавателю." />
                 </Label.Content>
             </Label>
             <Grid Margin="25,0,10,0">
@@ -33,14 +33,14 @@
                     </ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0"  Content="Ваше время: " HorizontalAlignment="Left" FontSize="24"  Margin="0 51 0 10" FontFamily="Poppins" Foreground="Black" Width="177" Grid.ColumnSpan="2"/>
-                <Label Grid.Column="1" x:Name="LabelTimeResult" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#279A44" Width="177"/>
+                <Label Grid.Column="1" x:Name="LabelTimeResult" HorizontalAlignment="Left" FontWeight="Bold" FontSize="36" Margin="0,45,0,16" FontFamily="Poppins" Foreground="#372579" Width="177"/>
             </Grid>
             <Button x:Name="OpenMainWindowButton"
             UseLayoutRounding="True"
             Style="{DynamicResource RoundButtonTemplate}"
             VerticalAlignment="Bottom" HorizontalAlignment="Center"
             Width="246" Height="56"
-            Click="OpenMainWindowButton_Click"  Content="Вернуться на главную" Cursor="Hand" Margin="0,47" >
+            Click="OpenMainWindowButtonClick"  Content="Вернуться на главную" Cursor="Hand" Margin="0,47" >
                 <Button.Effect>
                     <DropShadowEffect Color="Black" ShadowDepth="1"/>
                 </Button.Effect>

@@ -17,6 +17,6 @@
                FontSize="{Binding ElementName=circularProgress, Path=PercentFontSize}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <ed:Arc Name="progressBar" Stretch="None" EndAngle="{Binding Converter={StaticResource ValueToAngleConverter},
             ElementName=circularProgress, Path=Value}" ArcThickness="{Binding ElementName=circularProgress,
-            Path=ArcThickness}" Fill="#FF279A44"/>
+            Path=ArcThickness}" Fill="#372579"/>
     </Grid>
 </UserControl>

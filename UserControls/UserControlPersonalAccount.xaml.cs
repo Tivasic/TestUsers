@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using TestUsers.models;
+using System;
 
 namespace TestUsers
 {
@@ -9,18 +10,19 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlPersonalAccount : UserControl
     {
-        public User DataUser { get; set; }
+        public Users DataUser { get; set; }
+
         public UserControlPersonalAccount()
         {
             InitializeComponent();
         }
 
-        //Метод заполнения полей данными пользователя.
+        // Метод заполнения полей данными пользователя.
         public void FillingFields()
         {
             Name.Text = DataUser.Name.Trim();
             Surname.Text = DataUser.Surname.Trim();
-            Company.Text = DataUser.Company.Trim();
+            Group.Text = DataUser.GroupUser.Trim();
         }
 
         //Метод отвечающий за кнопку смены данных.
@@ -28,10 +30,10 @@ namespace TestUsers
         {
             string NewName = Name.Text.Trim();
             string NewSurname = Surname.Text.Trim();
-            string NewCompany = Company.Text.Trim();
+            string NewGroup = Group.Text.Trim();
             bool check_name;
             bool check_surname;
-            bool check_company;
+            bool check_group;
 
             RegisterWindow registerWindow = new RegisterWindow();
 
@@ -53,38 +55,38 @@ namespace TestUsers
                 check_surname = true;
             }
 
-            if (DataUser.Company != NewCompany)
+            if (DataUser.GroupUser != NewGroup)
             {
-                check_company = registerWindow.CheckСompany(this.Company, this.CompanyBorder, NewCompany);
+                check_group = registerWindow.CheckGroup(this.Group, this.GroupBorder, NewGroup);
             }
             else
             {
-                check_company = true;
+                check_group = true;
             }
 
-            if (check_name & check_surname & check_company)
+            if (check_name & check_surname & check_group)
             {
-                DataUser = DataWorker.EditUser(DataUser, NewName, NewSurname, NewCompany);
-                MainWindow mainWindow = new MainWindow
-                {
-                   DataUser = DataUser
-                };
-                TextResult.Text = "Вы успешно сменили личные данные";
+                DataUser = DataWorker.EditUser(DataUser, NewName, NewSurname, NewGroup);
+                MainWindow mainWindow = new MainWindow { DataUser = DataUser };
+
+                mainWindow.ChangeUserName();
+                Snackbar.MessageQueue.Enqueue("Вы успешно сменили личные данные");
             }
             else
             {
-                TextResult.Text = "Повторите попытку";
+                Snackbar.MessageQueue.Enqueue("Проверьте корректность данных");
             }
         }
 
-        //Метод перехода на страницу смены пароля.
-        private void Hyperlink_Change_Password(object sender, RoutedEventArgs e)
+        // Метод перехода на страницу смены пароля.
+        private void OpenMainWindowButtonClick(object sender, RoutedEventArgs e)
         {
-            UserControlChangePassword usc = new UserControlChangePassword
+            var changePasswordControl = new UserControlChangePassword
             {
                 DataUser = DataUser
             };
-            GridMain.Children.Add(usc);
+            GridMain.Children.Clear(); 
+            GridMain.Children.Add(changePasswordControl);
         }
     }
 }

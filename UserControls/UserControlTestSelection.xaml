@@ -14,21 +14,21 @@
             </StackPanel>
         </Grid>
 
-        <Grid Margin="33,114,27,288">
-            <Border MouseLeftButtonUp="BorderTestFirst_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
+        <Grid Margin="30,214,30,188">
+            <Border MouseLeftButtonUp="BorderTestMouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32" Tag="Основы Python">
                 <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
+                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
                 </Border.Effect>
                 <Grid>
-                    <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/FirstTest_logo.png"  Margin="-20,0,-18,0"/>
+                    <StackPanel Margin="-33,-40,-36,33">
+                        <Image VerticalAlignment="Top" MinWidth="205" Height="123" Source="/TestUsers;component/images/tests/FirstTest_logo.png" Margin="-20,0,-18,0" />
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №1" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                        <Label Content="Python" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins" />
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border MouseLeftButtonUp="BorderTestSecond_MouseLeftButtonUp"  Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
+            <Border MouseLeftButtonUp="BorderTestMouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32"  Tag="Основы SQL">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
@@ -37,11 +37,11 @@
                         <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/SecondTest_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №2" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                        <Label Content="SQL" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins" />
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border MouseLeftButtonUp="BorderTestThird_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
+            <Border MouseLeftButtonUp="BorderTestMouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32" Tag="C#">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
@@ -50,49 +50,7 @@
                         <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/ThirdTest_logo.png" Margin="-20,0,-18,0"/>
                     </StackPanel>
                     <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №3" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
-                    </StackPanel>
-                </Grid>
-            </Border>
-        </Grid>
-        <Grid Margin="33,365,27,37">
-
-            <Border MouseLeftButtonUp="BorderTestFourth_MouseLeftButtonUp" Cursor="Hand" Width="205" Height="201" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
-                </Border.Effect>
-                <Grid>
-                    <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/FourthTest_logo.png" Margin="-20,0,-18,0"/>
-                    </StackPanel>
-                    <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №4" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10" FontFamily="Poppins" Width="155"/>
-                    </StackPanel>
-                </Grid>
-            </Border>
-            <Border MouseLeftButtonUp="BorderTestFifth_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
-                </Border.Effect>
-                <Grid>
-                    <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/FifthTest_logo.png" Margin="-20,0,-18,0"/>
-                    </StackPanel>
-                    <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №5" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
-                    </StackPanel>
-                </Grid>
-            </Border>
-            <Border MouseLeftButtonUp="BorderTestSixth_MouseLeftButtonUp" Cursor="Hand" Width="206" Height="201" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" />
-                </Border.Effect>
-                <Grid>
-                    <StackPanel  Margin="-33,-40,-36,33" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="123" Source="/TestUsers;component/images/tests/SixthTest_logo.png" Margin="-20,0,-18,0"/>
-                    </StackPanel>
-                    <StackPanel Margin="-24,88,-26,-30">
-                        <Label Content="Тест №6" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
+                        <Label Content="C#" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,10" FontFamily="Poppins"/>
                     </StackPanel>
                 </Grid>
             </Border>

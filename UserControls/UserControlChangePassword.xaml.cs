@@ -10,56 +10,59 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlChangePassword : UserControl
     {
-        public User DataUser { get; set; }
+        public Users DataUser { get; set; }
+
         public UserControlChangePassword()
         {
             InitializeComponent();
         }
 
-        //Метод очистки поля пароля.
-        public void ClearCurrentPasswordBorder()
+        // Метод очистки поля пароля.
+        private void ClearCurrentPasswordBorder()
         {
             CurrentPassword.ToolTip = null;
-           CurrentPasswordBorder.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#89000000"));
+            CurrentPasswordBorder.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#89000000");
         }
 
-        //Метод отвечающий за кнопку подтверждения смены данных.
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // Метод валидации паролей.
+        private bool ValidatePasswords(string currentPassword, string newPassword1, string newPassword2)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.ChangeUserName();
-            string Current_Password = CurrentPassword.Password.Trim();
-            string NewPassword_1 = Password_1.Password.Trim();
-            string NewPassword_2 = Password_2.Password.Trim();
-            bool check_password;
-
-            RegisterWindow registerWindow = new RegisterWindow();
-
-            if (DataUser.Password.Trim() == Current_Password)
-            {
-                ClearCurrentPasswordBorder();
-                check_password = registerWindow.CheckPassword(this.Password_1, this.Password_2, this.PasswordBorder_1, this.PasswordBorder_2, NewPassword_1, NewPassword_2);
-            }
-            else
+            if (DataUser.Password.Trim() != currentPassword)
             {
                 CurrentPassword.ToolTip = "Введенный пароль не совпадает с текущим";
                 CurrentPasswordBorder.BorderBrush = Brushes.Red;
-                check_password = false;
+                return false;
             }
 
-            if (check_password)
+            ClearCurrentPasswordBorder();
+
+            RegisterWindow registerWindow = new RegisterWindow();
+            return registerWindow.CheckPassword(Password_1, Password_2, PasswordBorder_1, PasswordBorder_2, newPassword1, newPassword2);
+        }
+
+        // Метод изменения пароля.
+        private void ChangePassword(string newPassword)
+        {
+            DataUser = DataWorker.ChangePassword(DataUser, newPassword);
+            Snackbar.MessageQueue.Enqueue("Вы успешно сменили пароль");
+        }
+
+        // Обработчик кнопки подтверждения смены данных.
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            string currentPassword = CurrentPassword.Password.Trim();
+            string newPassword1 = Password_1.Password.Trim();
+            string newPassword2 = Password_2.Password.Trim();
+
+            if (ValidatePasswords(currentPassword, newPassword1, newPassword2))
             {
-                DataUser = DataWorker.ChangePassword(DataUser, NewPassword_1);
-                MainWindow mainWindow = new MainWindow
-                {
-                   DataUser = DataUser
-                };
-                TextResult.Text = "Вы успешно сменили пароль";
+                ChangePassword(newPassword1);
             }
             else
             {
-                TextResult.Text = "Повторите попытку";
+                Snackbar.MessageQueue.Enqueue("Проверьте корректность данных");
             }
         }
     }
 }
+

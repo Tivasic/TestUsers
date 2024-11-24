@@ -57,11 +57,11 @@
                 </ColumnDefinition>
                 <ColumnDefinition Width="Auto" MinWidth="74"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Компания" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,31,653,17"/>
+            <Label Content="Группа" VerticalAlignment="Center" FontFamily="Poppins" FontSize="16" Height="40" Margin="27,31,653,17"/>
 
-            <Border x:Name="CompanyBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
+            <Border x:Name="GroupBorder" CornerRadius="16" Height="66" Background="#EFF0F7" BorderBrush="#FFABADB3" BorderThickness="1"
                             VerticalAlignment="Center" UseLayoutRounding="True" Margin="130,11,60,11" Grid.ColumnSpan="2">
-                <TextBox x:Name="Company" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
+                <TextBox x:Name="Group" Margin="10,5,9,0" BorderThickness="0" Foreground="Black" Background="Transparent"
                                  Style="{StaticResource MaterialDesignTextBoxBase}" 
                                  VerticalAlignment="Center" FontSize="22" FontFamily="Poppins">
                 </TextBox>
@@ -72,8 +72,7 @@
                 Style="{DynamicResource RoundButtonTemplate}"
                 VerticalAlignment="Center" HorizontalAlignment="Center"
                 Width="200" Height="56"
-                Click="Button_Click" Content="Сохранить" Cursor="Hand" Margin="318,461,320,131"
-                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}">
+                Click="Button_Click" Content="Сохранить" Cursor="Hand" Margin="318,461,320,131">
             <Button.Effect>
                 <DropShadowEffect Color="Black" ShadowDepth="1"/>
             </Button.Effect>
@@ -88,22 +87,11 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Чтобы изменить пароль, " FontSize="16"  Margin="39,0,20,5" FontFamily="Poppins" Foreground="#4E4B66"></TextBlock>
                 <TextBlock Margin="226,0,19,0" FontFamily="Poppins" FontSize="16" Grid.ColumnSpan="2">
-                            <Hyperlink  Click="Hyperlink_Change_Password" TextDecorations="Underline" Foreground="#4E4B66">нажмите сюда</Hyperlink>
+                            <Hyperlink  Click="OpenMainWindowButtonClick" TextDecorations="Underline" Foreground="#4E4B66">нажмите сюда</Hyperlink>
                 </TextBlock>
             </Grid>
         </StackPanel>
-        <materialDesign:DialogHost IsOpen="False" x:Name="DialogResult">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Margin="15" Orientation="Vertical">
-                    <TextBlock x:Name="TextResult"></TextBlock>
-                    <Button 
-                        Margin="0 10 0 0"
-                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
-                        Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Хорошо">
-                    </Button>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
+        <materialDesign:Snackbar x:Name="Snackbar" MessageQueue="{materialDesign:MessageQueue}"/>
     </Grid>
 </UserControl>
 

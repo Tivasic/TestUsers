@@ -11,27 +11,30 @@ namespace TestUsers
     /// Логика взаимодействия для UserControlTest.xaml
     /// </summary>
     public partial class UserControlTest : UserControl
-    { 
+    {
         public string NameTest { get; set; }
+        public Users DataUser { get; set; }
+
         public UserControlTest()
         {
             InitializeComponent();
             StartTesting();
         }
-        DispatcherTimer Timer;
-        TimeSpan AllTime, CurrentTime;
 
-        List<BaseModelQuestions> Questions;
-        List<BaseModelAnswers> Answers;
+        private DispatcherTimer Timer;
+        private TimeSpan AllTime, CurrentTime;
 
-        string Answer, CurrentAnswer;
-        int StepValueProgressBar = 0, Result = 0, i = 0;
+        private List<Question> Questions;
+        private List<Answer> Answers;
 
-        //Метод логики работы таймера.
-        private void Dispatcher_Timer()
+        private string Answer, CurrentAnswer;
+        private int StepValueProgressBar = 0, Result = 0, currentQuestionIndex = 0;
+
+        // Метод логики работы таймера.
+        private void DispatcherTimer()
         {
             AllTime = CurrentTime = GetRequiredTime();
-            Timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            Timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, (sender, e) =>
             {
                 TimeLabel.Content = CurrentTime.ToString("mm\\:ss");
 
@@ -40,7 +43,7 @@ namespace TestUsers
                     Timer.Stop();
                 }
                 CurrentTime = CurrentTime.Add(TimeSpan.FromSeconds(-1));
-            }, 
+            },
             Application.Current.Dispatcher);
             Timer.Start();
         }
@@ -48,84 +51,110 @@ namespace TestUsers
         // Метод получения необходимого времени для прохождения теста.
         private TimeSpan GetRequiredTime()
         {
-            AllTime = TimeSpan.FromMinutes(2 * Questions.Count);
-            return AllTime;
+            return TimeSpan.FromMinutes(2 * Questions.Count);
         }
 
-        // Метод отвечающий за предупреждение перед тестом.
+        // Метод предупреждения перед началом теста.
         private void StartTesting()
         {
-            this.TextResult.Text = "После нажатия кнопки начала теста запуcтится таймер. Удачи!";
-            this.DialogResult.IsOpen = true;
+            TextResult.Text = "После нажатия кнопки начала теста запуcтится таймер. Удачи!";
+            DialogResult.IsOpen = true;
         }
 
-        //Метод отображения вопросов и определения на какой процент
-        //заполнится CircularProgressBar.
+        // Метод отображения текущего вопроса и обновления прогресс-бара.
         private void ShowQuestion()
         {
-            int count = Questions.Count;
-            StepValueProgressBar = 100 / count;
-            QuestionText.Text = Questions[i].Question.Trim();
+            int totalQuestions = Questions.Count;
+            StepValueProgressBar = 100 / totalQuestions;
+            QuestionText.Text = Questions[currentQuestionIndex].QuestionText.Trim();
             ShowAnswers();
         }
 
-        //Метод отображения вариантов ответа.
+        // Метод отображения вариантов ответа для текущего вопроса.
         private void ShowAnswers()
         {
-            this.Answer_1.Content = Answers[i].Answer_1.Trim();
-            this.Answer_2.Content = Answers[i].Answer_2.Trim();
-            this.Answer_3.Content = Answers[i].Answer_3.Trim();
-            this.Answer_4.Content = Answers[i].Answer_4.Trim();
+            var currentAnswers = Answers.FindAll(a => a.QuestionId == Questions[currentQuestionIndex].Id);
+            Answer_1.Content = currentAnswers[0].AnswerText.Trim();
+            Answer_2.Content = currentAnswers[1].AnswerText.Trim();
+            Answer_3.Content = currentAnswers[2].AnswerText.Trim();
+            Answer_4.Content = currentAnswers[3].AnswerText.Trim();
         }
 
-        //Метод кнопки отвечающий за отображение следующего вопроса.
+        // Обработчик кнопки для отображения следующего вопроса.
         private void NextQuestionButtonButton_Click(object sender, RoutedEventArgs e)
         {
             circularProgressBar.Value += StepValueProgressBar;
 
-            if (Answer == Questions[i].True_answer.Trim())
+            var trueAnswer = DataWorker.GetTrueAnswer(Questions[currentQuestionIndex].Id);
+            if (Answer == trueAnswer.Answer.AnswerText.Trim())
             {
                 Result += StepValueProgressBar;
             }
-            i++;
-            if(i == Questions.Count)
+
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex == Questions.Count)
             {
                 Timer.Stop();
-                UserControlResult usc = new UserControlResult
+                var testDuration = AllTime - CurrentTime;
+                DataWorker.RecordResult(DataUser.Id, NameTest, Result, testDuration);
+
+                var resultControl = new UserControlResult
                 {
                     TestResult = Result,
-                    TimeResult = AllTime - CurrentTime
+                    TimeResult = testDuration
                 };
-                usc.RecordResult();
-                GridMain.Children.Add(usc);
+                resultControl.ShowResult();
+                GridMain.Children.Add(resultControl);
             }
             else
             {
+                ResetQuestionState();
                 ShowQuestion();
             }
         }
 
-        //Метод кнопки для запуска теста.
+        // Обработчик кнопки для запуска теста.
         public void StartTestingButton_Click(object sender, RoutedEventArgs e)
         {
             TestLabel.Content = NameTest;
             GridMain.Visibility = Visibility.Visible;
             Questions = DataWorker.GetAllQuestions(NameTest);
             Answers = DataWorker.GetAllAnswers(NameTest);
-            Dispatcher_Timer();
+            DispatcherTimer();
             ShowQuestion();
         }
 
-        //Метод логики работы выбора ответа.
+        // Метод для выбора ответа.
         private void CheckAnswers(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
             NextQuestionButton.IsEnabled = radioButton.IsEnabled;
             CurrentAnswer = radioButton.Content.ToString();
-            if (CurrentAnswer != null)
+            if (!string.IsNullOrEmpty(CurrentAnswer))
             {
                 Answer = CurrentAnswer;
             }
         }
+        // Метод сброса состояния выбора ответа.
+        private void ResetQuestionState()
+        {
+            // Отключаем кнопку "Дальше"
+            NextQuestionButton.IsEnabled = false;
+
+            // Сбрасываем состояние радиокнопок
+            foreach (var child in stackPanel.Children)
+            {
+                if (child is RadioButton radioButton)
+                {
+                    radioButton.IsChecked = false;
+                }
+            }
+
+            // Сбрасываем текущий выбранный ответ
+            CurrentAnswer = string.Empty;
+            Answer = string.Empty;
+        }
     }
 }
+

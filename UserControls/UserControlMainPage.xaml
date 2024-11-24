@@ -20,55 +20,37 @@
         </Grid>
 
         <Grid Margin="30,156,30,10">
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutCompanyBorder_MouseLeftClick">
+            <Border Width="206" Height="311" Margin="80,86,0,85" Background="White" HorizontalAlignment="Left" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutUniversityBorderMouseLeftClick">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_company.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_university.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
-                        <Label Content="О компании" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
+                        <Label Content="О МТУСИ" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
                         <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
                             <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Узнайте больше о нас и наших целях."/>
+                                <AccessText TextWrapping="Wrap" Text="Узнайте о нас больше!"/>
                             </Label.Content>
                         </Label>
                     </StackPanel>
                 </Grid>
             </Border>
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutTestBorder_MouseLeftClick">
+            <Border Width="206" Height="311" Margin="400,86,0,85" Background="White" HorizontalAlignment="Center" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="AboutTestBorderMouseLeftClick">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
                 </Border.Effect>
                 <Grid>
                     <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_test.png" Margin="-42,0,-40,0" Width="208"/>
+                        <Image MinWidth ="205" Height="190" Source="/TestUsers;component/images/about_test.png" Margin="-42,0,-40,0" Width="208"/>
                     </StackPanel>
                     <StackPanel Margin="-24,152,-26,-21">
                         <Label Content="О тесте" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
                         <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
                             <Label.Content>
                                 <AccessText TextWrapping="Wrap" Text="Подробнее о том, как действует программа."/>
-                            </Label.Content>
-                        </Label>
-                    </StackPanel>
-                </Grid>
-            </Border>
-            <Border Width="206" Height="311" Margin="15" Background="White" HorizontalAlignment="Right" Padding="40" CornerRadius="32" Cursor="Hand" MouseLeftButtonUp="YourFeedbackBorder_MouseLeftClick">
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="Gray" ShadowDepth="0" ></DropShadowEffect>
-                </Border.Effect>
-                <Grid>
-                    <StackPanel Margin="0,-40,0,0" >
-                        <Image VerticalAlignment="Top" MinWidth ="205" Height="190" Source="/TestUsers;component/images/your_feedback.png" Margin="-42,0,-40,0" Width="208"/>
-                    </StackPanel>
-                    <StackPanel Margin="-24,152,-26,-21">
-                        <Label Content="Ваше мнение" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="0 10 0 10" FontFamily="Poppins"></Label>
-                        <Label HorizontalAlignment="Center" FontSize="13"  Margin="0 0 0 0">
-                            <Label.Content>
-                                <AccessText TextWrapping="Wrap" Text="Поделитесь им с нами."/>
                             </Label.Content>
                         </Label>
                     </StackPanel>

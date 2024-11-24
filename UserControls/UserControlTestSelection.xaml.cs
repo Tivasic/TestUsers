@@ -9,51 +9,43 @@ namespace TestUsers
     /// </summary>
     public partial class UserControlTestSelection : UserControl
     {
+        public Users DataUser { get; set; }
         public UserControlTestSelection()
         {
             InitializeComponent();
         }
 
-        //Метод перехода в первый тест.
-        private void BorderTestFirst_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        // Метод перехода к тесту по номеру.
+        private void NavigateToTest(string testName)
         {
-            UserControlTest usc = new UserControlTest
+            var testControl = new UserControlTest
             {
-                NameTest = "Тест №1"
+                NameTest = testName,
+                DataUser = DataUser
             };
-            GridMain.Children.Add(usc);
+            GridMain.Children.Clear(); // Очистка содержимого перед добавлением нового контрола.
+            GridMain.Children.Add(testControl);
         }
 
-        //Метод перехода во второй тест.
-        private void BorderTestSecond_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        // Метод перехода к тесту.
+        private void BorderTestMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            UserControlTest usc = new UserControlTest
+            var border = sender as Border;
+            if (border != null)
             {
-                NameTest = "Тест №2"
-            };
-            GridMain.Children.Add(usc); 
+                var testName = border.Tag as string;
+                if (!string.IsNullOrEmpty(testName))
+                {
+                    NavigateToTest(testName);
+                }
+                else
+                {
+                    ShowTestNotAvailableMessage();
+                }
+            }
         }
-
-        //Метод перехода в третий тест.
-        private void BorderTestThird_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Этот тест пока недоступен");
-        }
-
-        //Метод перехода в четвертый тест.
-        private void BorderTestFourth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Этот тест пока недоступен");
-        }
-
-        //Метод перехода в пятый тест.
-        private void BorderTestFifth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            MessageBox.Show("Этот тест пока недоступен");
-        }
-
-        //Метод перехода в шестой тест.
-        private void BorderTestSixth_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        // Метод отображения сообщения о недоступности теста.
+        private void ShowTestNotAvailableMessage()
         {
             MessageBox.Show("Этот тест пока недоступен");
         }

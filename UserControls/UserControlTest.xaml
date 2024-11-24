@@ -8,7 +8,7 @@
         mc:Ignorable="d" Height="648" Width="838"
         Background="White" >
 
-    <Grid x:Name="GridMain" Visibility="Hidden" >
+    <Grid x:Name="GridMain" Visibility="Hidden">
         <StackPanel >
             <Label x:Name="TestLabel" HorizontalAlignment="Left" FontSize="40" FontWeight="Bold" Margin="35,25,0,10" FontFamily="Poppins" Width="818" Foreground="#FF14142B"/>
             <Grid Margin="10,0">
@@ -23,7 +23,7 @@
                         <AccessText x:Name="QuestionText" TextWrapping="Wrap"/>
                     </Label.Content>
                 </Label>
-                <Label x:Name="TimeLabel" Grid.Column="1" FontFamily="Poppins" FontSize="28" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#FF279A44" Height="39" Margin="44,43,102,0" Width="82" FontWeight="Bold"/>
+                <Label x:Name="TimeLabel" Grid.Column="1" FontFamily="Poppins" FontSize="28" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="#372579" Height="39" Margin="44,43,102,0" Width="82" FontWeight="Bold"/>
             </Grid>
             <Grid Margin="10,0" >
                 <Grid.ColumnDefinitions>
@@ -60,12 +60,13 @@
                     <Button x:Name="ButtonResult" 
                             Margin="0 10 0 0"
                             Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" CommandTarget="{Binding ElementName=DialogResult}"
-                            Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#279A44" Foreground="White" Content="Старт тест"
+                            Style="{DynamicResource MaterialDesignFlatMidBgButton}" Background="#372579" Foreground="White" Content="Начать тестирование"
                             Click="StartTestingButton_Click">
                     </Button>
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
     </Grid>
+
 </UserControl>
 
